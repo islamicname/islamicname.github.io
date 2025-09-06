@@ -230,9 +230,6 @@
       </h1>
     </div>
     <div class="flex items-center gap-2">
-      <button id="favorites-btn" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
-        <i class="ri-star-line text-2xl" id="favorites-icon"></i>
-      </button>
       <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
         <i class="ri-moon-line text-2xl" id="theme-icon"></i>
       </button>
@@ -311,93 +308,105 @@
   const themeIcon = document.getElementById('theme-icon');
 
   // State
+  let allNames = []; // Store all names in memory
   let currentFilter = 'boy';
-  let lastLoadedKey = null;
   let isLoading = false;
   const PAGE_SIZE = 50;
 
-  // Function to fetch and render names based on filter and pagination
-  async function fetchAndRenderNames(isAppend = false) {
-    if (isLoading) return;
+  // Function to fetch all names initially
+  async function fetchAllNames() {
     isLoading = true;
     loadingSpinner.classList.remove('hidden');
-    noResultsMessage.classList.add('hidden');
-
-    // Get the base path based on the current filter
-    const basePath = currentFilter === 'boy' ? 'boy_names' : 'girl_names';
-    let clickCounts = {};
 
     try {
-      // First, get the clicks data to sort the names
-      const clicksRef = ref(db, 'clicks');
-      const clicksSnapshot = await get(clicksRef);
-      if (clicksSnapshot.exists()) {
-        clickCounts = clicksSnapshot.val();
-      }
+      const boyNamesRef = ref(db, 'boy_names');
+      const girlNamesRef = ref(db, 'girl_names');
+      const clicksRef = ref(db, 'popularity/click');
 
-      // Fetch names
-      const namesRef = ref(db, basePath);
-      const namesSnapshot = await get(namesRef);
-      let allNamesForGender = [];
-      if (namesSnapshot.exists()) {
-        const data = namesSnapshot.val();
-        allNamesForGender = Object.keys(data).map(key => ({
-          ...data[key],
-          nameKey: key,
-          gender: currentFilter,
-          clickCount: clickCounts[key] || 0
-        }));
-      }
+      const [boySnapshot, girlSnapshot, clicksSnapshot] = await Promise.all([
+        get(boyNamesRef),
+        get(girlNamesRef),
+        get(clicksRef)
+      ]);
 
-      // Apply search filter and sort
-      const searchTerm = searchInput.value.toLowerCase().trim();
-      let filteredNames = allNamesForGender.filter(name => {
-        return name.name_bn.toLowerCase().includes(searchTerm) ||
-               (name.meaning && name.meaning.toLowerCase().includes(searchTerm));
-      });
+      const boyNamesData = boySnapshot.val() || {};
+      const girlNamesData = girlSnapshot.val() || {};
+      const clickCounts = clicksSnapshot.val() || {};
+
+      const allBoyNames = Object.keys(boyNamesData).map(key => ({
+        ...boyNamesData[key],
+        nameKey: key,
+        gender: 'boy',
+        clickCount: clickCounts[key] || 0
+      }));
+
+      const allGirlNames = Object.keys(girlNamesData).map(key => ({
+        ...girlNamesData[key],
+        nameKey: key,
+        gender: 'girl',
+        clickCount: clickCounts[key] || 0
+      }));
+
+      allNames = [...allBoyNames, ...allGirlNames];
       
-      // Sort by click count (descending) and then alphabetically
-      filteredNames.sort((a, b) => {
-        if (b.clickCount !== a.clickCount) {
-          return b.clickCount - a.clickCount;
-        }
-        return a.name_bn.localeCompare(b.name_bn, 'bn', { sensitivity: 'base' });
-      });
-
-      // Implement pagination
-      const startIndex = isAppend ? nameListContainer.children.length : 0;
-      const endIndex = startIndex + PAGE_SIZE;
-      const paginatedNames = filteredNames.slice(startIndex, endIndex);
-
-      if (!isAppend) {
-        nameListContainer.innerHTML = '';
-      }
-
-      if (paginatedNames.length > 0) {
-        const nameCardsHTML = paginatedNames.map(name => renderNameCard(name)).join('');
-        nameListContainer.insertAdjacentHTML('beforeend', nameCardsHTML);
-
-        document.querySelectorAll('.name-card-link').forEach(link => {
-          link.addEventListener('click', (e) => {
-            const nameKey = e.currentTarget.dataset.nameKey;
-            if (nameKey) {
-              trackClick(nameKey);
-            }
-          });
-        });
-      } else if (!isAppend) {
-        noResultsMessage.classList.remove('hidden');
-      }
-
-      lastLoadedKey = filteredNames[endIndex - 1]?.nameKey || null;
-
     } catch (error) {
-      console.error("Error fetching names:", error);
-      noResultsMessage.classList.remove('hidden');
+      console.error("Error fetching all names:", error);
     } finally {
       isLoading = false;
       loadingSpinner.classList.add('hidden');
     }
+  }
+
+  // Function to render names from the 'allNames' array
+  function renderNames(isAppend = false) {
+    loadingSpinner.classList.remove('hidden');
+    noResultsMessage.classList.add('hidden');
+
+    let filteredNames = allNames.filter(name => name.gender === currentFilter);
+    
+    // Apply search filter
+    const searchTerm = searchInput.value.toLowerCase().trim();
+    if (searchTerm) {
+      filteredNames = filteredNames.filter(name => {
+        return name.name_bn.toLowerCase().includes(searchTerm) ||
+               (name.meaning && name.meaning.toLowerCase().includes(searchTerm));
+      });
+    }
+
+    // Sort names by popularity (click count)
+    filteredNames.sort((a, b) => {
+      if (b.clickCount !== a.clickCount) {
+        return b.clickCount - a.clickCount;
+      }
+      return a.name_bn.localeCompare(b.name_bn, 'bn', { sensitivity: 'base' });
+    });
+
+    // Implement pagination
+    const startIndex = isAppend ? nameListContainer.children.length : 0;
+    const endIndex = startIndex + PAGE_SIZE;
+    const paginatedNames = filteredNames.slice(startIndex, endIndex);
+
+    if (!isAppend) {
+      nameListContainer.innerHTML = '';
+    }
+
+    if (paginatedNames.length > 0) {
+      const nameCardsHTML = paginatedNames.map(name => renderNameCard(name)).join('');
+      nameListContainer.insertAdjacentHTML('beforeend', nameCardsHTML);
+      
+      document.querySelectorAll('.name-card-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const nameKey = e.currentTarget.dataset.nameKey;
+          if (nameKey) {
+            trackClick(nameKey);
+          }
+        });
+      });
+    } else if (!isAppend) {
+      noResultsMessage.classList.remove('hidden');
+    }
+
+    loadingSpinner.classList.add('hidden');
   }
 
   // Function to render a single name card
@@ -426,27 +435,36 @@
     `;
   }
 
-  // Function to track a click on a name using Realtime Database transactions
-  async function trackClick(nameKey) {
-      if (!db) {
-          console.warn("Database not ready. Click not tracked.");
-          return;
-      }
-      const clickRef = ref(db, `clicks/${nameKey}`);
+// Function to track a click on a name using Realtime Database transactions
+async function trackClick(nameKey) {
+    if (!db) {
+        console.warn("Database not ready. Click not tracked.");
+        return;
+    }
+    const clickRef = ref(db, `popularity/click/${nameKey}`);
 
-      try {
-        await rtdbTransaction(clickRef, (currentData) => {
-          if (currentData) {
-            return (currentData || 0) + 1;
-          } else {
-            return 1;
-          }
-        });
-        console.log(`Click for ${nameKey} tracked successfully.`);
-      } catch (e) {
-          console.error("Error tracking click: ", e);
+    try {
+      await rtdbTransaction(clickRef, (currentData) => {
+        if (currentData) {
+          return (currentData || 0) + 1;
+        } else {
+          return 1;
+        }
+      });
+      console.log(`Click for ${nameKey} tracked successfully.`);
+      
+      // Update the local allNames array to reflect the new click count
+      const nameIndex = allNames.findIndex(name => name.nameKey === nameKey);
+      if (nameIndex !== -1) {
+          allNames[nameIndex].clickCount++;
       }
-  }
+      
+    } catch (e) {
+        console.error("Error tracking click: ", e);
+    }
+}
+
+
   
   // Event listeners for main filters
   filterChips.forEach(chip => {
@@ -454,8 +472,7 @@
       document.querySelectorAll('.chip[data-filter]').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       currentFilter = chip.dataset.filter;
-      lastLoadedKey = null; // Reset pagination
-      fetchAndRenderNames();
+      renderNames();
     });
   });
   
@@ -464,8 +481,7 @@
   searchInput.addEventListener('input', () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
-      lastLoadedKey = null; // Reset pagination on search
-      fetchAndRenderNames();
+      renderNames();
     }, 300);
   });
 
@@ -476,10 +492,7 @@
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
       if (scrollTop + clientHeight >= scrollHeight - 100) { // 100px from the bottom
-          // Only fetch more if there's no search query
-          if (searchInput.value.trim() === '') {
-              fetchAndRenderNames(true);
-          }
+          renderNames(true);
       }
   });
 
@@ -507,7 +520,9 @@
 
   // Initial data fetch
   document.addEventListener('DOMContentLoaded', () => {
-    fetchAndRenderNames();
+    fetchAllNames().then(() => {
+      renderNames();
+    });
   });
 </script>
 </body>
