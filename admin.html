@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>নতুন নাম যুক্ত করুন</title>
-  <meta name="description" content="ইসলামিক নামের ডেটাবেজে নতুন নাম যুক্ত করার ফর্ম।"/>
+  <title>নতুন নাম যুক্ত ও সম্পাদনা করুন</title>
+  <meta name="description" content="ইসলামিক নামের ডেটাবেজে নতুন নাম যুক্ত বা বিদ্যমান নাম সম্পাদনা করার ফর্ম।"/>
   <style>
     /* Hind Siliguri fonts loaded locally */
     @font-face {
@@ -168,61 +168,153 @@
     <a href="index.html" class="flex items-center gap-2 md:gap-4 text-gray-800 dark:text-gray-200 hover:text-brand-600 transition-colors">
       <i class="ri-arrow-left-line text-2xl md:text-3xl"></i>
       <h1 class="text-3xl md:text-4xl font-bold">
-        <span>নতুন নাম যুক্ত করুন</span>
+        <span>ড্যাশবোর্ড</span>
       </h1>
     </a>
-    <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
-      <i class="ri-moon-line text-2xl" id="theme-icon"></i>
-    </button>
+    <div class="flex items-center gap-4">
+        <button id="login-toggle" class="px-4 py-2 bg-brand-600 text-white rounded-xl shadow-glass hover:bg-brand-700 transition-colors">
+            লগইন
+        </button>
+        <button id="logout-toggle" class="px-4 py-2 bg-red-600 text-white rounded-xl shadow-glass hover:bg-red-700 transition-colors hidden">
+            লগআউট
+        </button>
+        <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
+            <i class="ri-moon-line text-2xl" id="theme-icon"></i>
+        </button>
+    </div>
   </header>
 
   <main class="mt-8 p-6 md:p-8 glass rounded-3xl">
-    <form id="add-name-form" class="space-y-6">
-      
-      <div>
-        <label for="name_en" class="form-label">নাম (ইংরেজি)</label>
-        <input type="text" id="name_en" class="form-input" placeholder="উদাহরণ: Abdullah" required>
-      </div>
-
-      <div>
-        <label for="name_bn" class="form-label">নাম (বাংলা)</label>
-        <input type="text" id="name_bn" class="form-input" placeholder="উদাহরণ: আরহান" required>
-      </div>
-
-      <div>
-        <label for="meaning" class="form-label">অর্থ</label>
-        <input type="text" id="meaning" class="form-input" placeholder="উদাহরণ: যিনি সম্মান করেন" required>
-      </div>
-
-      <div>
-        <label for="name_ar" class="form-label">নাম (আরবি)</label>
-        <input type="text" id="name_ar" class="form-input arabic" placeholder="مثال: أرحان" dir="rtl" required>
-      </div>
-
-      <div>
-        <label for="source" class="form-label">উৎস (ঐচ্ছিক)</label>
-        <input type="text" id="source" class="form-input" placeholder="উদাহরণ: কুরআন">
-      </div>
-      
-      <div>
-        <label class="form-label">নামের ধরণ</label>
-        <div class="flex flex-wrap gap-3">
-          <div class="chip active" data-filter="boy" id="boy-chip"><i class="ri-user-line"></i><span>ছেলে</span></div>
-          <div class="chip" data-filter="girl" id="girl-chip"><i class="ri-women-line"></i><span>মেয়ে</span></div>
+    
+    <div id="login-form-container">
+      <form id="login-form" class="space-y-6">
+        <h2 class="text-2xl font-bold text-center">লগইন</h2>
+        <div>
+          <label for="email" class="form-label">ইমেল</label>
+          <input type="email" id="email" class="form-input" placeholder="আপনার ইমেল" required>
         </div>
+        <div>
+          <label for="password" class="form-label">পাসওয়ার্ড</label>
+          <input type="text" id="password" class="form-input" placeholder="পাসওয়ার্ড" required>
+        </div>
+        <button type="submit" id="login-submit-btn" class="w-full px-6 py-3 bg-brand-600 text-white rounded-xl shadow-glass hover:bg-brand-700 transition-colors">
+          লগইন করুন
+        </button>
+        <div id="login-message-container" class="mt-4 text-center text-sm font-semibold hidden"></div>
+      </form>
+    </div>
+    
+    <div id="add-name-form-container" class="hidden">
+      <div id="auth-status" class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 p-3 rounded-lg text-center font-bold mb-4 hidden">
+          আপনি সফলভাবে লগইন করেছেন।
       </div>
-      
-      <button type="submit" id="submit-btn" class="w-full px-6 py-3 bg-brand-600 text-white rounded-xl shadow-glass hover:bg-brand-700 transition-colors">
-        নাম যুক্ত করুন
-      </button>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+        <button id="show-add-form-btn" class="w-full md:w-auto px-6 py-4 bg-brand-600 text-white rounded-xl shadow-glass hover:bg-brand-700 transition-colors font-semibold flex items-center justify-center gap-2">
+          <i class="ri-add-line"></i> নতুন নাম যোগ করুন
+        </button>
+        <button id="show-edit-form-btn" class="w-full md:w-auto px-6 py-4 bg-aurora-600 text-white rounded-xl shadow-glass hover:bg-aurora-700 transition-colors font-semibold flex items-center justify-center gap-2">
+          <i class="ri-edit-line"></i> বিদ্যমান নাম সম্পাদনা করুন
+        </button>
+      </div>
+      <div id="forms-wrapper" class="mt-8">
+        
+        <form id="add-name-form" class="space-y-6">
+          <h2 class="text-2xl font-bold text-center">নতুন নাম যোগ করুন</h2>
+          <div>
+            <label for="name_en" class="form-label">নাম (ইংরেজি)</label>
+            <input type="text" id="name_en" class="form-input" placeholder="উদাহরণ: Abdullah" required>
+          </div>
+  
+          <div>
+            <label for="name_bn" class="form-label">নাম (বাংলা)</label>
+            <input type="text" id="name_bn" class="form-input" placeholder="উদাহরণ: আরহান" required>
+          </div>
+  
+          <div>
+            <label for="meaning" class="form-label">অর্থ</label>
+            <input type="text" id="meaning" class="form-input" placeholder="উদাহরণ: যিনি সম্মান করেন" required>
+          </div>
+  
+          <div>
+            <label for="name_ar" class="form-label">নাম (আরবি)</label>
+            <input type="text" id="name_ar" class="form-input arabic" placeholder="مثال: أرحان" dir="rtl" required>
+          </div>
+  
+          <div>
+            <label for="source" class="form-label">উৎস (ঐচ্ছিক)</label>
+            <input type="text" id="source" class="form-input" placeholder="উদাহরণ: কুরআন">
+          </div>
+          
+          <div>
+            <label class="form-label">নামের ধরণ</label>
+            <div class="flex flex-wrap gap-3">
+              <div class="chip active" data-filter="boy" id="boy-chip"><i class="ri-user-line"></i><span>ছেলে</span></div>
+              <div class="chip" data-filter="girl" id="girl-chip"><i class="ri-women-line"></i><span>মেয়ে</span></div>
+            </div>
+          </div>
+          
+          <button type="submit" id="submit-btn" class="w-full px-6 py-3 bg-brand-600 text-white rounded-xl shadow-glass hover:bg-brand-700 transition-colors">
+            নাম যুক্ত করুন
+          </button>
+  
+          <div id="message-container" class="mt-4 text-center text-sm font-semibold hidden"></div>
+        </form>
 
-      <div id="message-container" class="mt-4 text-center text-sm font-semibold hidden"></div>
-
-    </form>
+        <form id="edit-name-form" class="space-y-6 hidden">
+          <h2 class="text-2xl font-bold text-center">বিদ্যমান নাম সম্পাদনা</h2>
+          <div>
+            <label for="search-name" class="form-label">নাম খুঁজুন (ইংরেজি)</label>
+            <div class="flex gap-2">
+              <input type="text" id="search-name" class="form-input flex-1" placeholder="উদাহরণ: Abdullah" required>
+              <button type="button" id="search-btn" class="px-6 py-3 bg-aurora-600 text-white rounded-xl shadow-glass hover:bg-aurora-700 transition-colors">
+                <i class="ri-search-line"></i>
+              </button>
+            </div>
+          </div>
+        
+          <div id="edit-fields-container" class="hidden space-y-6 p-6 glass rounded-2xl">
+            <div id="edit-status-message" class="text-center font-semibold"></div>
+            <div>
+              <label for="edit_name_en" class="form-label">নাম (ইংরেজি)</label>
+              <input type="text" id="edit_name_en" class="form-input" required>
+            </div>
+            <div>
+              <label for="edit_name_bn" class="form-label">নাম (বাংলা)</label>
+              <input type="text" id="edit_name_bn" class="form-input" required>
+            </div>
+            <div>
+              <label for="edit_meaning" class="form-label">অর্থ</label>
+              <input type="text" id="edit_meaning" class="form-input" required>
+            </div>
+            <div>
+              <label for="edit_name_ar" class="form-label">নাম (আরবি)</label>
+              <input type="text" id="edit_name_ar" class="form-input arabic" dir="rtl" required>
+            </div>
+            <div>
+              <label for="edit_source" class="form-label">উৎস (ঐচ্ছিক)</label>
+              <input type="text" id="edit_source" class="form-input">
+            </div>
+            <div class="flex justify-between gap-4">
+              <button type="submit" id="update-btn" class="w-full px-6 py-3 bg-brand-600 text-white rounded-xl shadow-glass hover:bg-brand-700 transition-colors">
+                হালনাগাদ করুন
+              </button>
+              <button type="button" id="delete-btn" class="w-full px-6 py-3 bg-red-600 text-white rounded-xl shadow-glass hover:bg-red-700 transition-colors">
+                মুছে ফেলুন
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 </div>
 
 <script type="module">
+  // Import Firebase functions from CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getDatabase, ref, set, get, update, remove } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+  import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+  
   // Global variables provided by the environment
   const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
   let firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
@@ -241,23 +333,40 @@
     };
     firebaseConfig = userFirebaseConfig;
   }
-
-  // Import Firebase functions from CDN
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
   
   // Initialize Firebase
-  let app, db;
+  let app, db, auth;
   try {
     app = initializeApp(firebaseConfig);
     db = getDatabase(app);
+    auth = getAuth(app);
   } catch (error) {
     console.error("Firebase initialization error:", error);
   }
 
   // DOM elements
-  const form = document.getElementById('add-name-form');
-  const nameEnInput = document.getElementById('name_en'); // New DOM element for English name
+  const addNameFormContainer = document.getElementById('add-name-form-container');
+  const loginFormContainer = document.getElementById('login-form-container');
+  const loginToggleBtn = document.getElementById('login-toggle');
+  const logoutToggleBtn = document.getElementById('logout-toggle');
+  
+  // New DOM elements for forms and buttons
+  const showAddFormBtn = document.getElementById('show-add-form-btn');
+  const showEditFormBtn = document.getElementById('show-edit-form-btn');
+  const addNameForm = document.getElementById('add-name-form');
+  const editNameForm = document.getElementById('edit-name-form');
+  const searchNameInput = document.getElementById('search-name');
+  const searchBtn = document.getElementById('search-btn');
+  const editFieldsContainer = document.getElementById('edit-fields-container');
+  const editStatusMessage = document.getElementById('edit-status-message');
+  const updateBtn = document.getElementById('update-btn');
+  const deleteBtn = document.getElementById('delete-btn');
+  
+  const loginForm = document.getElementById('login-form');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const loginMessageContainer = document.getElementById('login-message-container');
+  const nameEnInput = document.getElementById('name_en'); 
   const nameBnInput = document.getElementById('name_bn');
   const meaningInput = document.getElementById('meaning');
   const nameArInput = document.getElementById('name_ar');
@@ -271,19 +380,106 @@
 
   // State
   let currentGender = 'boy';
+  let currentKey = null; // To store the key of the name being edited
+  let currentPath = null; // To store the database path of the name being edited
+
+  // Function to show/hide forms based on login status
+  function updateUI(isLoggedIn) {
+      if (isLoggedIn) {
+          loginFormContainer.classList.add('hidden');
+          addNameFormContainer.classList.remove('hidden');
+          loginToggleBtn.classList.add('hidden');
+          logoutToggleBtn.classList.remove('hidden');
+          // Show the login success message for a brief period
+          const authStatus = document.getElementById('auth-status');
+          authStatus.classList.remove('hidden');
+          setTimeout(() => {
+              authStatus.classList.add('hidden');
+          }, 5000); // Hide after 5 seconds
+      } else {
+          loginFormContainer.classList.remove('hidden');
+          addNameFormContainer.classList.add('hidden');
+          loginToggleBtn.classList.remove('hidden');
+          logoutToggleBtn.classList.add('hidden');
+      }
+  }
 
   // Function to show a message
-  function showMessage(text, isError = false) {
-    messageContainer.textContent = text;
-    messageContainer.classList.remove('hidden', 'text-green-600', 'text-red-600');
+  function showMessage(text, isError = false, container = messageContainer) {
+    container.textContent = text;
+    container.classList.remove('hidden', 'text-green-600', 'text-red-600');
     if (isError) {
-      messageContainer.classList.add('text-red-600', 'dark:text-red-400');
+      container.classList.add('text-red-600', 'dark:text-red-400');
     } else {
-      messageContainer.classList.add('text-green-600', 'dark:text-green-400');
+      container.classList.add('text-green-600', 'dark:text-green-400');
     }
   }
 
-  // Event listeners for gender chips
+  // Event listeners for login and logout
+  loginToggleBtn.addEventListener('click', () => {
+      // This button is for switching to the login form from the main form.
+      // After login, it is replaced by the logout button.
+      updateUI(false);
+  });
+  
+  logoutToggleBtn.addEventListener('click', () => {
+      // Perform logout logic and update UI
+      signOut(auth).then(() => {
+          updateUI(false);
+          showMessage("আপনি সফলভাবে লগআউট করেছেন।", false, loginMessageContainer);
+      }).catch((error) => {
+          console.error("Logout error:", error);
+          showMessage("লগআউট ব্যর্থ হয়েছে।", true, loginMessageContainer);
+      });
+  });
+
+  // Handle login form submission
+  loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+      
+      // Use Firebase Authentication
+      signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+              // Login successful
+              const user = userCredential.user;
+              updateUI(true);
+              showMessage("সফলভাবে লগইন করা হয়েছে!", false, loginMessageContainer);
+              loginForm.reset();
+              showForm(addNameForm); // Show the add name form by default
+          })
+          .catch((error) => {
+              // Login failed
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.error("Login error:", errorCode, errorMessage);
+              // Show a generic error message for security
+              showMessage("ভুল ইমেল বা পাসওয়ার্ড। আবার চেষ্টা করুন।", true, loginMessageContainer);
+          });
+  });
+
+  // Function to switch between forms
+  function showForm(formToShow) {
+    addNameForm.classList.add('hidden');
+    editNameForm.classList.add('hidden');
+    formToShow.classList.remove('hidden');
+    // Also, reset any previous messages
+    messageContainer.classList.add('hidden');
+    editStatusMessage.classList.add('hidden');
+    editFieldsContainer.classList.add('hidden');
+  }
+
+  // Event listeners for the new buttons
+  showAddFormBtn.addEventListener('click', () => {
+    showForm(addNameForm);
+  });
+  
+  showEditFormBtn.addEventListener('click', () => {
+    showForm(editNameForm);
+    editNameForm.reset();
+  });
+
   genderChips.forEach(chip => {
     chip.addEventListener('click', () => {
       genderChips.forEach(c => c.classList.remove('active'));
@@ -292,8 +488,8 @@
     });
   });
 
-  // Handle form submission
-  form.addEventListener('submit', async (e) => {
+  // Handle add name form submission
+  addNameForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if (!db) {
@@ -306,7 +502,7 @@
 
     // Get form data
     const newNameData = {
-      name_en: nameEnInput.value.trim(), // Get value from new input field
+      name_en: nameEnInput.value.trim(), 
       name_bn: nameBnInput.value.trim(),
       meaning: meaningInput.value.trim(),
       name_ar: nameArInput.value.trim(),
@@ -315,7 +511,6 @@
 
     // Determine the database path
     const path = currentGender === 'boy' ? 'boy_names' : 'girl_names';
-    const namesRef = ref(db, path);
     
     // Use the English name as the key for the new entry
     const newNameKey = nameEnInput.value.trim().replace(/\s/g, '');
@@ -324,7 +519,7 @@
     try {
       await set(newNameRef, newNameData);
       showMessage("✅ নাম সফলভাবে যুক্ত করা হয়েছে!");
-      form.reset();
+      addNameForm.reset();
       document.getElementById('boy-chip').classList.add('active');
       document.getElementById('girl-chip').classList.remove('active');
       currentGender = 'boy';
@@ -334,6 +529,109 @@
     } finally {
       submitBtn.textContent = 'নাম যুক্ত করুন';
       submitBtn.disabled = false;
+    }
+  });
+
+
+  // Function to search for a name in the database
+  searchBtn.addEventListener('click', async () => {
+    const searchName = searchNameInput.value.trim().replace(/\s/g, '');
+    if (!searchName) {
+      showMessage("অনুগ্রহ করে একটি নাম লিখুন।", true, editStatusMessage);
+      editFieldsContainer.classList.add('hidden');
+      return;
+    }
+    
+    // Check both boy and girl lists
+    const pathsToCheck = ['boy_names', 'girl_names'];
+    let found = false;
+
+    for (const path of pathsToCheck) {
+      const nameRef = ref(db, `${path}/${searchName}`);
+      try {
+        const snapshot = await get(nameRef);
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          document.getElementById('edit_name_en').value = data.name_en;
+          document.getElementById('edit_name_bn').value = data.name_bn;
+          document.getElementById('edit_meaning').value = data.meaning;
+          document.getElementById('edit_name_ar').value = data.name_ar;
+          document.getElementById('edit_source').value = data.source || '';
+          
+          currentKey = searchName;
+          currentPath = path;
+          showMessage("নাম পাওয়া গেছে! এখন আপনি সম্পাদনা করতে পারেন।", false, editStatusMessage);
+          editFieldsContainer.classList.remove('hidden');
+          found = true;
+          break; // Exit the loop once a name is found
+        }
+      } catch (error) {
+        console.error("Error searching name:", error);
+      }
+    }
+
+    if (!found) {
+      showMessage("দুঃখিত, এই নামের কোনো তথ্য পাওয়া যায়নি।", true, editStatusMessage);
+      editFieldsContainer.classList.add('hidden');
+    }
+  });
+
+  // Handle update form submission
+  editNameForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!currentKey || !currentPath) {
+      showMessage("সম্পাদনার জন্য কোনো নাম নির্বাচন করা হয়নি।", true, editStatusMessage);
+      return;
+    }
+    
+    updateBtn.textContent = 'হালনাগাদ হচ্ছে...';
+    updateBtn.disabled = true;
+
+    const updatedData = {
+      name_en: document.getElementById('edit_name_en').value.trim(),
+      name_bn: document.getElementById('edit_name_bn').value.trim(),
+      meaning: document.getElementById('edit_meaning').value.trim(),
+      name_ar: document.getElementById('edit_name_ar').value.trim(),
+      source: document.getElementById('edit_source').value.trim() || null,
+    };
+    
+    const nameRef = ref(db, `${currentPath}/${currentKey}`);
+
+    try {
+        await update(nameRef, updatedData);
+        showMessage("✅ তথ্য সফলভাবে হালনাগাদ করা হয়েছে!", false, editStatusMessage);
+    } catch (error) {
+        console.error("Error updating name:", error);
+        showMessage("❌ তথ্য হালনাগাদ করতে ব্যর্থ হয়েছে।", true, editStatusMessage);
+    } finally {
+        updateBtn.textContent = 'হালনাগাদ করুন';
+        updateBtn.disabled = false;
+    }
+  });
+  
+  // Handle delete button click
+  deleteBtn.addEventListener('click', async () => {
+    if (!currentKey || !currentPath) {
+      showMessage("মুছে ফেলার জন্য কোনো নাম নির্বাচন করা হয়নি।", true, editStatusMessage);
+      return;
+    }
+    
+    if (!confirm("আপনি কি নিশ্চিত এই নামটি মুছে ফেলতে চান?")) {
+        return;
+    }
+    
+    const nameRef = ref(db, `${currentPath}/${currentKey}`);
+
+    try {
+        await remove(nameRef);
+        showMessage("✅ নাম সফলভাবে মুছে ফেলা হয়েছে!", false, editStatusMessage);
+        editNameForm.reset();
+        editFieldsContainer.classList.add('hidden');
+        currentKey = null;
+        currentPath = null;
+    } catch (error) {
+        console.error("Error deleting name:", error);
+        showMessage("❌ নাম মুছে ফেলতে ব্যর্থ হয়েছে।", true, editStatusMessage);
     }
   });
 
