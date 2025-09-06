@@ -131,10 +131,6 @@
       border-color: transparent;
       box-shadow: 0 6px 14px rgba(39,179,146,0.25);
     }
-    .dark .chip {
-      background: rgba(17,24,39,0.6);
-      border-color: rgba(255,255,255,0.12);
-    }
     .dark .chip.active {
         background: #27b392;
         color: #fff;
@@ -255,7 +251,7 @@
 
   // Import Firebase functions from CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import { getDatabase, ref, onValue, get, child } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+  import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
   // Initialize Firebase
   let app, db;
@@ -299,17 +295,13 @@
       `;
       return;
     }
-
-    // Fetch both boy and girl names to find the specific name
-    const boyNamesRef = ref(db, `boy_names/${nameKey}`);
-    const girlNamesRef = ref(db, `girl_names/${nameKey}`);
-
-    const handleData = (snapshot) => {
-      const data = snapshot.val();
+  
+    // Function to display the fetched data
+    function displayData(data) {
+      loadingSpinner.classList.add('hidden');
+      contentDiv.classList.remove('hidden');
+      
       if (data) {
-        loadingSpinner.classList.add('hidden');
-        contentDiv.classList.remove('hidden');
-        
         contentDiv.innerHTML = `
           <h2 class="text-3xl font-bold text-brand-700 dark:text-brand-300 mb-2">${data.name_bn}</h2>
           <p class="text-xl arabic text-gray-800 dark:text-gray-200">
@@ -323,40 +315,34 @@
           </div>
         `;
       } else {
-        // If the name is not found in the boy_names node, check the girl_names node.
-        onValue(girlNamesRef, (girlSnapshot) => {
-          const girlData = girlSnapshot.val();
-          if (girlData) {
-            loadingSpinner.classList.add('hidden');
-            contentDiv.classList.remove('hidden');
-            
-            contentDiv.innerHTML = `
-              <h2 class="text-3xl font-bold text-brand-700 dark:text-brand-300 mb-2">${girlData.name_bn}</h2>
-              <p class="text-xl arabic text-gray-800 dark:text-gray-200">
-                ${girlData.name_ar}
-              </p>
-              <p class="text-gray-600 dark:text-gray-300 mt-2">(${nameKey})</p>
-              <hr class="my-4 border-gray-200 dark:border-gray-700">
-              <div class="space-y-2">
-                <p class="text-gray-700 dark:text-gray-200"><strong class="font-semibold">অর্থ:</strong> ${girlData.meaning}</p>
-                ${girlData.source ? `<p class="text-gray-700 dark:text-gray-200"><strong class="font-semibold">উৎস:</strong> ${girlData.source}</p>` : ''}
-              </div>
-            `;
-          } else {
-            loadingSpinner.classList.add('hidden');
-            contentDiv.classList.remove('hidden');
-            contentDiv.innerHTML = `
-              <div class="text-center text-gray-500 text-xl py-16">
-                <p>দুঃখিত, এই নামের বিস্তারিত তথ্য খুঁজে পাওয়া যায়নি।</p>
-              </div>
-            `;
-          }
-        }, { onlyOnce: true });
+        contentDiv.innerHTML = `
+          <div class="text-center text-gray-500 text-xl py-16">
+            <p>দুঃখিত, এই নামের বিস্তারিত তথ্য খুঁজে পাওয়া যায়নি।</p>
+          </div>
+        `;
       }
-    };
-    
-    // Check for boy names first
-    onValue(boyNamesRef, handleData, { onlyOnce: true });
+    }
+
+    // Fetch both boy and girl names to find the specific name
+    const boyNamesRef = ref(db, `boy_names/${nameKey}`);
+    get(boyNamesRef).then((boySnapshot) => {
+      const boyData = boySnapshot.val();
+      if (boyData) {
+        displayData(boyData);
+      } else {
+        const girlNamesRef = ref(db, `girl_names/${nameKey}`);
+        get(girlNamesRef).then((girlSnapshot) => {
+          const girlData = girlSnapshot.val();
+          displayData(girlData);
+        }).catch((error) => {
+          console.error("Error fetching girl name:", error);
+          displayData(null); // Show 'not found' message on error
+        });
+      }
+    }).catch((error) => {
+      console.error("Error fetching boy name:", error);
+      displayData(null); // Show 'not found' message on error
+    });
   }
 
   // Event listener for dark mode toggle
@@ -382,7 +368,10 @@
   }
 
   // Initial render
-  document.addEventListener('DOMContentLoaded', renderNameDetails);
+  document.addEventListener('DOMContentLoaded', () => {
+    renderNameDetails();
+  });
 </script>
 </body>
 </html>
+
