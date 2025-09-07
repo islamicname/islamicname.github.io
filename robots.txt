@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /admin.html
 
 Sitemap: https://islamicname.github.io/sitemap.xml
