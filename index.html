@@ -14,7 +14,7 @@
       font-style: normal;
       font-display: swap;
     }
-    
+
     /* Noto Nastaliq Urdu font loaded locally */
     @font-face {
       font-family: 'Noto Nastaliq Urdu';
@@ -26,7 +26,7 @@
   </style>
   <script src="https://cdn.tailwindcss.com"> </script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
-  
+
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -55,7 +55,7 @@
   <style>
     :root { --radius: 14px }
     body {
-      font-family: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, 'Noto Nastaliq Urdu', 'Reem Kufi', sans-serif;
+      font-family: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, 'Noto Nastaliq Urdu', sans-serif;
       transition: all .3s ease;
     }
     body {
@@ -67,7 +67,7 @@
         background-color: #0b1220;
         color: #e5e7eb;
     }
-    
+
     /* New class: background shadow */
     .bg-glow {
         background: radial-gradient(1200px 600px at 80% -10%, #d1daf7 0%, rgba(255,255,255,0) 55%),
@@ -128,7 +128,7 @@
       border-color: rgba(255,255,255,0.12);
     }
     .arabic {
-      font-family: 'Noto Nastaliq Urdu', 'Reem Kufi', serif;
+      font-family: 'Noto Nastaliq Urdu', serif;
     }
     .skeleton {
       background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 37%, rgba(0,0,0,0.06) 63%);
@@ -136,7 +136,7 @@
       animation: shimmer 1.2s ease-in-out infinite;
     }
     @keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
-    
+
     /* New highlight class for exact match */
     .highlight {
       border: 2px solid #27b392;
@@ -232,7 +232,7 @@
       <input type="text" id="name-search" placeholder="নাম খুঁজুন..." class="w-full pl-12 pr-4 py-3 rounded-2xl glass focus:outline-none focus:ring-2 focus:ring-brand-500 placeholder-gray-500 dark:placeholder-gray-400 transition-shadow">
       <i class="ri-search-line text-2xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i>
     </div>
-    
+
     <div class="flex flex-wrap items-center gap-3 md:gap-4 justify-center">
       <span class="text-sm text-gray-600 dark:text-gray-300">নামের ধরণ:</span>
       <div class="flex flex-wrap gap-2 md:gap-3">
@@ -244,7 +244,7 @@
 
   <div id="name-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     </div>
-  
+
   <div id="no-results" class="hidden text-center text-xl text-gray-500 py-16">
     <i class="ri-error-warning-line text-5xl mb-4"></i>
     <p>কোন নাম পাওয়া যায়নি।</p>
@@ -278,10 +278,10 @@
   // Import Firebase functions from CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
   import { getDatabase, ref, onValue, get, child, update, runTransaction as rtdbTransaction, query, orderByChild, limitToFirst, startAt, endAt } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
-  
+
   // Initialize Firebase
   let app, db;
-  
+
   try {
     app = initializeApp(firebaseConfig);
     db = getDatabase(app);
@@ -339,7 +339,7 @@
       }));
 
       allNames = [...allBoyNames, ...allGirlNames];
-      
+
     } catch (error) {
       console.error("Error fetching all names:", error);
     } finally {
@@ -354,7 +354,7 @@
     noResultsMessage.classList.add('hidden');
 
     let filteredNames = allNames.filter(name => name.gender === currentFilter);
-    
+
     // Apply search filter
     const searchTerm = searchInput.value.toLowerCase().trim();
     if (searchTerm) {
@@ -384,7 +384,7 @@
     if (paginatedNames.length > 0) {
       const nameCardsHTML = paginatedNames.map(name => renderNameCard(name)).join('');
       nameListContainer.insertAdjacentHTML('beforeend', nameCardsHTML);
-      
+
       document.querySelectorAll('.name-card-link').forEach(link => {
         link.addEventListener('click', (e) => {
           const nameKey = e.currentTarget.dataset.nameKey;
@@ -443,20 +443,20 @@ async function trackClick(nameKey) {
         }
       });
       console.log(`Click for ${nameKey} tracked successfully.`);
-      
+
       // Update the local allNames array to reflect the new click count
       const nameIndex = allNames.findIndex(name => name.nameKey === nameKey);
       if (nameIndex !== -1) {
           allNames[nameIndex].clickCount++;
       }
-      
+
     } catch (e) {
         console.error("Error tracking click: ", e);
     }
 }
 
 
-  
+
   // Event listeners for main filters
   filterChips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -466,7 +466,7 @@ async function trackClick(nameKey) {
       renderNames();
     });
   });
-  
+
   // Event listener for search input
   let searchTimeout = null;
   searchInput.addEventListener('input', () => {
@@ -479,7 +479,7 @@ async function trackClick(nameKey) {
   // Infinite scroll logic
   window.addEventListener('scroll', () => {
       if (isLoading) return;
-      
+
       const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
       if (scrollTop + clientHeight >= scrollHeight - 100) { // 100px from the bottom
