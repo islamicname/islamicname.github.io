@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>বিস্তারিত নাম</title>
   <meta name="description" content="ইসলামিক নামের বিস্তারিত তথ্য।"/>
+  <script>
+    // URL থেকে nameKey প্যারামিটারটি বের করা হচ্ছে
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      const results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    const nameKey = getUrlParameter('nameKey');
+
+    // যদি nameKey পাওয়া যায়, তাহলে ক্যাননিক্যাল ট্যাগ তৈরি করা হবে
+    if (nameKey) {
+      const canonicalUrl = `https://islamicname.github.io/details.html?nameKey=${nameKey}`;
+      const head = document.getElementsByTagName('head')[0];
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      head.appendChild(link);
+    }
+  </script>
   <style>
     @font-face {
       font-family: 'Hind Siliguri';
