@@ -6,16 +6,14 @@
   <title>বিস্তারিত নাম</title>
   <meta name="description" content="ইসলামিক নামের বিস্তারিত তথ্য।"/>
   <style>
-    /* Hind Siliguri fonts loaded locally */
-   @font-face {
+    @font-face {
       font-family: 'Hind Siliguri';
       src: url('./HindSiliguri.woff2') format('woff2');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
     }
-    
-    /* Noto Nastaliq Urdu font loaded locally */
+
     @font-face {
       font-family: 'Noto Nastaliq Urdu';
       src: url('./NotoNastaliqUrdu.woff2') format('woff2');
@@ -23,19 +21,10 @@
       font-style: normal;
       font-display: swap;
     }
-
-    /* Reem Kufi font loaded locally */
-    @font-face {
-        font-family: 'Reem Kufi';
-        src: url('./ReemKufi-VariableFont_wght.ttf') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-    }
   </style>
   <script src="https://cdn.tailwindcss.com"> </script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
-  
+
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -64,7 +53,7 @@
   <style>
     :root { --radius: 14px }
     body {
-      font-family: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, 'Noto Nastaliq Urdu', 'Reem Kufi', sans-serif;
+      font-family: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, 'Noto Nastaliq Urdu', sans-serif;
       transition: all .3s ease;
     }
     body {
@@ -76,7 +65,7 @@
         background-color: #0b1220;
         color: #e5e7eb;
     }
-    
+
     .bg-glow {
         background: radial-gradient(1200px 600px at 80% -10%, #d1daf7 0%, rgba(255,255,255,0) 55%),
                     radial-gradient(1000px 500px at -10% 10%, #b1e5d5 0%, rgba(255,255,255,0) 55%);
@@ -137,9 +126,9 @@
         border-color: transparent;
     }
     .arabic {
-      font-family: 'Noto Nastaliq Urdu', 'Reem Kufi', serif;
+      font-family: 'Noto Nastaliq Urdu', serif;
     }
-    
+
     /* Modal styles */
     .modal {
         display: block;
@@ -255,7 +244,7 @@
 
   // Initialize Firebase
   let app, db;
-  
+
   try {
     app = initializeApp(firebaseConfig);
     db = getDatabase(app);
@@ -282,9 +271,9 @@
   function renderNameDetails() {
     loadingSpinner.classList.remove('hidden');
     contentDiv.classList.add('hidden');
-    
+
     const nameKey = getUrlParameter('nameKey');
-    
+
     if (!nameKey) {
       loadingSpinner.classList.add('hidden');
       contentDiv.classList.remove('hidden');
@@ -295,12 +284,12 @@
       `;
       return;
     }
-  
+
     // Function to display the fetched data
     function displayData(data) {
       loadingSpinner.classList.add('hidden');
       contentDiv.classList.remove('hidden');
-      
+
       if (data) {
         contentDiv.innerHTML = `
           <h2 class="text-3xl font-bold text-brand-700 dark:text-brand-300 mb-2">${data.name_bn}</h2>
@@ -374,4 +363,3 @@
 </script>
 </body>
 </html>
-
