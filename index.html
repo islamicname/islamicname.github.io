@@ -7,6 +7,8 @@
   <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com">
+
   <style>
     /* Hind Siliguri fonts loaded locally */
     @font-face {
@@ -172,7 +174,7 @@
         border-radius: 24px;
         width: 90%;
         max-width: 600px;
-        box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+        box-shadow: 16px 32px rgba(0,0,0,0.15);
         animation: slideIn 0.4s ease-out forwards;
         border: 1px solid rgba(16, 24, 40, 0.08);
     }
@@ -223,9 +225,10 @@
       </h1>
     </div>
     <div class="flex items-center gap-2">
-      <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors">
-        <i class="ri-moon-line text-2xl" id="theme-icon"></i>
-      </button>
+<button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors" aria-label="Toggle dark mode">
+  <i class="ri-moon-line text-2xl" id="theme-icon"></i>
+</button>
+
     </div>
   </header>
 
@@ -301,107 +304,9 @@
   const themeIcon = document.getElementById('theme-icon');
 
   // State
-  let allNames = []; // Store all names in memory
   let currentFilter = 'boy';
   let isLoading = false;
-  const PAGE_SIZE = 50;
-
-  // Function to fetch all names initially
-  async function fetchAllNames() {
-    isLoading = true;
-    loadingSpinner.classList.remove('hidden');
-
-    try {
-      const boyNamesRef = ref(db, 'boy_names');
-      const girlNamesRef = ref(db, 'girl_names');
-      const clicksRef = ref(db, 'popularity/click');
-
-      const [boySnapshot, girlSnapshot, clicksSnapshot] = await Promise.all([
-        get(boyNamesRef),
-        get(girlNamesRef),
-        get(clicksRef)
-      ]);
-
-      const boyNamesData = boySnapshot.val() || {};
-      const girlNamesData = girlSnapshot.val() || {};
-      const clickCounts = clicksSnapshot.val() || {};
-
-      const allBoyNames = Object.keys(boyNamesData).map(key => ({
-        ...boyNamesData[key],
-        nameKey: key,
-        gender: 'boy',
-        clickCount: clickCounts[key] || 0
-      }));
-
-      const allGirlNames = Object.keys(girlNamesData).map(key => ({
-        ...girlNamesData[key],
-        nameKey: key,
-        gender: 'girl',
-        clickCount: clickCounts[key] || 0
-      }));
-
-      allNames = [...allBoyNames, ...allGirlNames];
-
-    } catch (error) {
-      console.error("Error fetching all names:", error);
-    } finally {
-      isLoading = false;
-      loadingSpinner.classList.add('hidden');
-    }
-  }
-
-  // Function to render names from the 'allNames' array
-  function renderNames(isAppend = false) {
-    loadingSpinner.classList.remove('hidden');
-    noResultsMessage.classList.add('hidden');
-
-    let filteredNames = allNames.filter(name => name.gender === currentFilter);
-
-    // Apply search filter
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    if (searchTerm) {
-      filteredNames = filteredNames.filter(name => {
-        return name.name_bn.toLowerCase().includes(searchTerm) ||
-               (name.meaning && name.meaning.toLowerCase().includes(searchTerm));
-      });
-    }
-
-    // Sort names by popularity (click count)
-    filteredNames.sort((a, b) => {
-      if (b.clickCount !== a.clickCount) {
-        return b.clickCount - a.clickCount;
-      }
-      return a.name_bn.localeCompare(b.name_bn, 'bn', { sensitivity: 'base' });
-    });
-
-    // Implement pagination
-    const startIndex = isAppend ? nameListContainer.children.length : 0;
-    const endIndex = startIndex + PAGE_SIZE;
-    const paginatedNames = filteredNames.slice(startIndex, endIndex);
-
-    if (!isAppend) {
-      nameListContainer.innerHTML = '';
-    }
-
-    if (paginatedNames.length > 0) {
-      const nameCardsHTML = paginatedNames.map(name => renderNameCard(name)).join('');
-      nameListContainer.insertAdjacentHTML('beforeend', nameCardsHTML);
-
-      document.querySelectorAll('.name-card-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const nameKey = e.currentTarget.dataset.nameKey;
-          if (nameKey) {
-            trackClick(nameKey);
-          }
-        });
-      });
-    } else if (!isAppend) {
-      noResultsMessage.classList.remove('hidden');
-    }
-
-    loadingSpinner.classList.add('hidden');
-  }
-
+  
   // Function to render a single name card
   function renderNameCard(name) {
     return `
@@ -428,6 +333,51 @@
     `;
   }
 
+  // Function to fetch and render all names based on filter
+  async function fetchAndRenderNames() {
+    if (isLoading) return;
+
+    isLoading = true;
+    loadingSpinner.classList.remove('hidden');
+
+    const namesRef = ref(db, `${currentFilter}_names`);
+    const popularityRef = ref(db, 'popularity/click');
+
+    try {
+        const [namesSnapshot, popularitySnapshot] = await Promise.all([
+            get(namesRef),
+            get(popularityRef)
+        ]);
+
+        const namesData = namesSnapshot.val() || {};
+        const clickCounts = popularitySnapshot.val() || {};
+        
+        let namesArray = Object.keys(namesData).map(key => ({
+            ...namesData[key],
+            nameKey: key,
+            gender: currentFilter,
+            clickCount: clickCounts[key] || 0
+        })).sort((a, b) => a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' }));
+
+        if (namesArray.length > 0) {
+            const nameCardsHTML = namesArray.map(renderNameCard).join('');
+            nameListContainer.innerHTML = nameCardsHTML;
+            noResultsMessage.classList.add('hidden');
+        } else {
+            nameListContainer.innerHTML = '';
+            noResultsMessage.classList.remove('hidden');
+        }
+
+    } catch (error) {
+        console.error("Error fetching names:", error);
+        nameListContainer.innerHTML = '';
+        noResultsMessage.classList.remove('hidden');
+    } finally {
+        isLoading = false;
+        loadingSpinner.classList.add('hidden');
+    }
+}
+
 // Function to track a click on a name using Realtime Database transactions
 async function trackClick(nameKey) {
     if (!db) {
@@ -445,49 +395,93 @@ async function trackClick(nameKey) {
         }
       });
       console.log(`Click for ${nameKey} tracked successfully.`);
-
-      // Update the local allNames array to reflect the new click count
-      const nameIndex = allNames.findIndex(name => name.nameKey === nameKey);
-      if (nameIndex !== -1) {
-          allNames[nameIndex].clickCount++;
-      }
-
     } catch (e) {
         console.error("Error tracking click: ", e);
     }
 }
 
-
-
-  // Event listeners for main filters
-  filterChips.forEach(chip => {
+// Event listeners for main filters
+filterChips.forEach(chip => {
     chip.addEventListener('click', () => {
-      document.querySelectorAll('.chip[data-filter]').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      currentFilter = chip.dataset.filter;
-      renderNames();
+        document.querySelectorAll('.chip[data-filter]').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        currentFilter = chip.dataset.filter;
+        
+        // Reset state for new filter
+        nameListContainer.innerHTML = '';
+        noResultsMessage.classList.add('hidden');
+        searchInput.value = '';
+        
+        fetchAndRenderNames();
     });
-  });
+});
 
-  // Event listener for search input
-  let searchTimeout = null;
-  searchInput.addEventListener('input', () => {
+
+// Event listener for search input
+let searchTimeout = null;
+searchInput.addEventListener('input', () => {
     clearTimeout(searchTimeout);
     searchTimeout = setTimeout(() => {
-      renderNames();
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        if (searchTerm.length > 0) {
+            fetchAndRenderSearch(searchTerm);
+        } else {
+            nameListContainer.innerHTML = '';
+            noResultsMessage.classList.add('hidden');
+            fetchAndRenderNames();
+        }
     }, 300);
-  });
+});
 
-  // Infinite scroll logic
-  window.addEventListener('scroll', () => {
-      if (isLoading) return;
+// New function for searching
+async function fetchAndRenderSearch(searchTerm) {
+    if (isLoading) return;
+    isLoading = true;
+    loadingSpinner.classList.remove('hidden');
+    nameListContainer.innerHTML = '';
+    noResultsMessage.classList.add('hidden');
 
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+    const namesRef = ref(db, `${currentFilter}_names`);
+    const popularityRef = ref(db, 'popularity/click');
 
-      if (scrollTop + clientHeight >= scrollHeight - 100) { // 100px from the bottom
-          renderNames(true);
-      }
-  });
+    try {
+        const [namesSnapshot, popularitySnapshot] = await Promise.all([
+            get(namesRef),
+            get(popularityRef)
+        ]);
+
+        const allNamesData = namesSnapshot.val() || {};
+        const clickCounts = popularitySnapshot.val() || {};
+        
+        const filteredNames = Object.keys(allNamesData).filter(key => {
+            const name = allNamesData[key];
+            return name.name_bn.toLowerCase().includes(searchTerm) || (name.meaning && name.meaning.toLowerCase().includes(searchTerm)) || (name.name_en && name.name_en.toLowerCase().includes(searchTerm));
+        }).map(key => ({
+            ...allNamesData[key],
+            nameKey: key,
+            gender: currentFilter,
+            clickCount: clickCounts[key] || 0
+        })).sort((a,b) => {
+          if (b.clickCount !== a.clickCount) {
+            return b.clickCount - a.clickCount;
+          }
+          return a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' });
+        });
+
+        if (filteredNames.length > 0) {
+            const nameCardsHTML = filteredNames.map(renderNameCard).join('');
+            nameListContainer.innerHTML = nameCardsHTML;
+        } else {
+            noResultsMessage.classList.remove('hidden');
+        }
+
+    } catch (error) {
+        console.error("Error fetching search results:", error);
+    } finally {
+        isLoading = false;
+        loadingSpinner.classList.add('hidden');
+    }
+}
 
   // Event listener for dark mode toggle
   themeToggleBtn.addEventListener('click', () => {
@@ -511,11 +505,12 @@ async function trackClick(nameKey) {
     themeIcon.classList.add('ri-sun-line');
   }
 
-  // Initial data fetch
+  // Initial data fetch only for 'boy' filter
   document.addEventListener('DOMContentLoaded', () => {
-    fetchAllNames().then(() => {
-      renderNames();
-    });
+    const boyFilterChip = document.querySelector('.chip[data-filter="boy"]');
+    if (boyFilterChip) {
+        boyFilterChip.click();
+    }
   });
 </script>
 </body>
