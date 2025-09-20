@@ -10,10 +10,11 @@
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/font/woff2" crossorigin>
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
   <link href="./remixicon.css" rel="stylesheet">
+  <link href="./tailwind.css" rel="stylesheet">
 
-  <link rel="preconnect" href="https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com">
+
   <link rel="preconnect" href="https://www.gstatic.com">
-  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+
 
   <style>
     /* Hind Siliguri fonts loaded locally */
@@ -62,150 +63,18 @@
     }
   </script>
   <style>
-    :root { --radius: 14px }
-    body {
-      font-family: 'Hind Siliguri', 'Noto Sans Bengali', system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Arial, 'Noto Nastaliq Urdu', sans-serif;
-      transition: all .3s ease;
-    }
-    body {
-        background-color: #f8fafc;
-        color: #111827;
-        min-height: 100vh;
-    }
-    .dark body {
-        background-color: #0b1220;
-        color: #e5e7eb;
-    }
-
-    /* New class: background shadow */
-    .bg-glow {
-        background: radial-gradient(1200px 600px at 80% -10%, #d1daf7 0%, rgba(255,255,255,0) 55%),
-                    radial-gradient(1000px 500px at -10% 10%, #b1e5d5 0%, rgba(255,255,255,0) 55%);
-        transition: background .3s ease;
-    }
-    .dark .bg-glow {
-        background: radial-gradient(1200px 600px at 80% -10%, #1f2937 0%, rgba(0,0,0,0) 55%),
-                    radial-gradient(1000px 500px at -10% 10%, #0b3b33 0%, rgba(0,0,0,0) 55%);
-    }
-
-    .glass {
+    /* Custom utility classes, as some are not possible to implement with Tailwind
+    such as backdrop-filter and complex animations. */
+    .backdrop-blur-custom {
       backdrop-filter: saturate(160%) blur(10px);
       -webkit-backdrop-filter: saturate(160%) blur(10px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(255,255,255,0.65));
-      border: 1px solid rgba(16, 24, 40, 0.06);
-    }
-    .dark .glass {
-      background: linear-gradient(180deg, rgba(17,24,39,0.78), rgba(17,24,39,0.55));
-      border-color: rgba(255,255,255,0.08);
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      line-height: 1;
-      border: 1px dashed rgba(16,24,40,0.12);
-      background: rgba(16,24,40,0.02);
-    }
-    .dark .badge {
-      border-color: rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-    .chip {
-      border-radius: 999px;
-      padding: 8px 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(16,24,40,0.12);
-      background: rgba(255,255,255,0.7);
-      cursor: pointer;
-      user-select: none;
-      transition: all .15s ease;
-    }
-    .chip:hover { transform: translateY(-1px); }
-    .chip.active {
-      background: #27b392;
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 6px 14px rgba(39,179,146,0.25);
-    }
-    .dark .chip {
-      background: rgba(17,24,39,0.6);
-      border-color: rgba(255,255,255,0.12);
     }
     .arabic {
       font-family: 'Noto Nastaliq Urdu', serif;
     }
-    .skeleton {
-      background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 37%, rgba(0,0,0,0.06) 63%);
-      background-size: 400% 100%;
-      animation: shimmer 1.2s ease-in-out infinite;
-    }
-    @keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
-
-    /* New highlight class for exact match */
-    .highlight {
-      border: 2px solid #27b392;
-      box-shadow: 0 0 0 4px rgba(39,179,146,0.5);
-      transition: all 0.3s ease-in-out;
-    }
-
-    /* Modal styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 100;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
+    .modal-backdrop {
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        background-color: rgba(0,0,0,0.4);
-        animation: fadeIn 0.3s forwards;
-    }
-    .dark .modal {
-        background-color: rgba(0,0,0,0.6);
-    }
-    .modal-content {
-        position: relative;
-        background: rgba(255,255,255,0.85);
-        margin: 10% auto;
-        padding: 32px;
-        border-radius: 24px;
-        width: 90%;
-        max-width: 600px;
-        box-shadow: 16px 32px rgba(0,0,0,0.15);
-        animation: slideIn 0.4s ease-out forwards;
-        border: 1px solid rgba(16, 24, 40, 0.08);
-    }
-    .dark .modal-content {
-      background: rgba(17,24,39,0.75);
-      border-color: rgba(255,255,255,0.1);
-    }
-    .close-btn {
-        color: #aaa;
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        font-size: 28px;
-        font-weight: bold;
-        transition: all .2s ease;
-    }
-    .close-btn:hover, .close-btn:focus {
-        color: #333;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    .dark .close-btn {
-        color: #e5e7eb;
-    }
-    .dark .close-btn:hover, .dark .close-btn:focus {
-        color: #fff;
     }
     @keyframes fadeIn {
         from { opacity: 0; }
@@ -215,11 +84,18 @@
         from { transform: translateY(50px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
     }
+    @keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
+
+    .animate-shimmer {
+      background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 37%, rgba(0,0,0,0.06) 63%);
+      background-size: 400% 100%;
+      animation: shimmer 1.2s ease-in-out infinite;
+    }
   </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen font-['Hind_Siliguri',_system-ui] bg-slate-50 text-gray-900 transition-all duration-300 dark:bg-gray-950 dark:text-gray-100">
 
-<div class="bg-glow fixed inset-0 w-full h-full transition-all duration-300 -z-10"></div>
+<div class="fixed inset-0 w-full h-full transition-all duration-300 -z-10 bg-gradient-to-tr from-[#d1daf7] to-[#b1e5d5] dark:from-[#1f2937] dark:to-[#0b3b33] opacity-50 dark:opacity-70"></div>
 
 <div class="container mx-auto px-4 py-8">
   <header class="flex items-center justify-between py-4 md:py-6">
@@ -238,15 +114,15 @@
 
   <div class="mb-8">
     <div class="relative mb-4">
-      <input type="text" id="name-search" placeholder="নাম খুঁজুন..." class="w-full pl-12 pr-4 py-3 rounded-2xl glass focus:outline-none focus:ring-2 focus:ring-brand-500 placeholder-gray-500 dark:placeholder-gray-400 transition-shadow">
+      <input type="text" id="name-search" placeholder="নাম খুঁজুন..." class="w-full pl-12 pr-4 py-3 rounded-2xl backdrop-blur-custom bg-white/70 border border-gray-900/10 dark:bg-gray-800/70 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500 placeholder-gray-500 dark:placeholder-gray-400 transition-shadow">
       <i class="ri-search-line text-2xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i>
     </div>
 
     <div class="flex flex-wrap items-center gap-3 md:gap-4 justify-center">
       <span class="text-sm text-gray-600 dark:text-gray-300">নামের ধরণ:</span>
       <div class="flex flex-wrap gap-2 md:gap-3">
-        <div class="chip active" data-filter="boy"><i class="ri-user-line"></i><span>ছেলে</span></div>
-        <div class="chip" data-filter="girl"><i class="ri-women-line"></i><span>মেয়ে</span></div>
+        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 dark:bg-gray-800/70 dark:border-white/10 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="boy"><i class="ri-user-line"></i><span>ছেলে</span></div>
+        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 dark:bg-gray-800/70 dark:border-white/10 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="girl"><i class="ri-women-line"></i><span>মেয়ে</span></div>
       </div>
     </div>
   </div>
@@ -261,6 +137,13 @@
 
   <div id="loading-spinner" class="hidden text-center py-16">
     <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-brand-500 mx-auto"></div>
+  </div>
+</div>
+
+<div id="modal" class="hidden fixed inset-0 z-[100] overflow-auto modal-backdrop bg-black/40 dark:bg-black/60 animate-[fadeIn_0.3s_forwards]">
+  <div id="modal-content" class="relative bg-white/85 dark:bg-gray-900/75 m-[10%_auto] p-8 rounded-[24px] w-[90%] max-w-[600px] shadow-[16px_32px_rgba(0,0,0,0.15)] animate-[slideIn_0.4s_ease-out_forwards] border border-gray-900/10 dark:border-white/10">
+    <span class="close-btn absolute top-[10px] right-[15px] text-3xl font-bold text-gray-400 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white cursor-pointer transition-colors duration-200">&times;</span>
+    <div id="modal-body"></div>
   </div>
 </div>
 
@@ -327,9 +210,9 @@
           </p>
         </div>
         <div class="flex flex-wrap gap-2 text-sm">
-          <span class="badge"><i class="ri-user-${name.gender === 'boy' ? 'line' : 'women-line'}"></i> ${name.gender === 'boy' ? 'ছেলে' : 'মেয়ে'}</span>
-          ${name.source ? `<span class="badge"><i class="ri-book-3-line"></i> ${name.source}</span>` : ''}
-          <span class="badge"><i class="ri-fire-line"></i> ${name.clickCount || 0} clicks</span>
+          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 dark:border-white/10 bg-gray-900/5 dark:bg-white/5"><i class="ri-user-${name.gender === 'boy' ? 'line' : 'women-line'}"></i> ${name.gender === 'boy' ? 'ছেলে' : 'মেয়ে'}</span>
+          ${name.source ? `<span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 dark:border-white/10 bg-gray-900/5 dark:bg-white/5"><i class="ri-book-3-line"></i> ${name.source}</span>` : ''}
+          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 dark:border-white/10 bg-gray-900/5 dark:bg-white/5"><i class="ri-fire-line"></i> ${name.clickCount || 0} clicks</span>
         </div>
       </a>
     `;
@@ -377,7 +260,6 @@
         }
     }
   }
-
 
   // Function to render all names based on filter
   async function renderNames(filter) {
@@ -473,36 +355,35 @@ searchInput.addEventListener('input', () => {
     }, 300);
 });
 
-
-  // Event listener for dark mode toggle
-  themeToggleBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    if (isDark) {
-      themeIcon.classList.remove('ri-moon-line');
-      themeIcon.classList.add('ri-sun-line');
-    } else {
-      themeIcon.classList.remove('ri-sun-line');
-      themeIcon.classList.add('ri-moon-line');
-    }
-  });
-
-  // Set initial theme based on localStorage
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'dark') {
-    document.body.classList.add('dark');
+// Event listener for dark mode toggle
+themeToggleBtn.addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark');
+  const isDark = document.documentElement.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  if (isDark) {
     themeIcon.classList.remove('ri-moon-line');
     themeIcon.classList.add('ri-sun-line');
+  } else {
+    themeIcon.classList.remove('ri-sun-line');
+    themeIcon.classList.add('ri-moon-line');
   }
+});
 
-  // Initial data fetch only for 'boy' filter
-  document.addEventListener('DOMContentLoaded', () => {
-    const boyFilterChip = document.querySelector('.chip[data-filter="boy"]');
-    if (boyFilterChip) {
-        boyFilterChip.click();
-    }
-  });
+// Set initial theme based on localStorage
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+  document.documentElement.classList.add('dark');
+  themeIcon.classList.remove('ri-moon-line');
+  themeIcon.classList.add('ri-sun-line');
+}
+
+// Initial data fetch only for 'boy' filter
+document.addEventListener('DOMContentLoaded', () => {
+  const boyFilterChip = document.querySelector('.chip[data-filter="boy"]');
+  if (boyFilterChip) {
+      boyFilterChip.click();
+  }
+});
 </script>
 </body>
 </html>
