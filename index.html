@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ইসলামিক নামের ভান্ডার — সুন্দর অর্থবহ মুসলিম নাম খুঁজুন</title>
   <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
+  
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./rimixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/font/woff2" crossorigin>
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preconnect" href="https://www.gstatic.com">
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link href="./remixicon.css" rel="stylesheet">
+
   <link rel="preconnect" href="https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com">
+  <link rel="preconnect" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
   <style>
     /* Hind Siliguri fonts loaded locally */
@@ -31,7 +33,9 @@
       font-style: normal;
       font-display: swap;
     }
+  </style>
 
+  <script src="https://cdn.tailwindcss.com"> </script>
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -226,10 +230,9 @@
       </h1>
     </div>
     <div class="flex items-center gap-2">
-<button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors" aria-label="Toggle dark mode">
-  <i class="ri-moon-line text-2xl" id="theme-icon"></i>
-</button>
-
+      <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors" aria-label="Toggle dark mode">
+        <i class="ri-moon-line text-2xl" id="theme-icon"></i>
+      </button>
     </div>
   </header>
 
@@ -249,7 +252,7 @@
   </div>
 
   <div id="name-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    </div>
+  </div>
 
   <div id="no-results" class="hidden text-center text-xl text-gray-500 py-16">
     <i class="ri-error-warning-line text-5xl mb-4"></i>
@@ -262,29 +265,18 @@
 </div>
 
 <script type="module">
-  // Global variables provided by the environment
-  const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-  let firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-
-  // Add fallback values from the user's provided config if global config is not available
-<script type="module" defer>
-  // আপনার Firebase কোড
-  if (!firebaseConfig.projectId) {
-    const userFirebaseConfig = {
-      apiKey: "AIzaSyAC4h55aA0Zz--V5ejyndzR5WC_-9rAPio",
-      authDomain: "subscribe-bot-6f9b2.firebaseapp.com",
-      databaseURL: "https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com",
-      projectId: "subscribe-bot-6f9b2",
-      storageBucket: "subscribe-bot-6f9b2.firebasestorage.app",
-      messagingSenderId: "141787931031",
-      appId: "1:141787931031:web:2108a3e930f5ce4fbc64d2",
-      measurementId: "G-HSDKCJB14Y"
-    };
-    firebaseConfig = userFirebaseConfig;
-  }
-</script>
-
-
+  // Firebase configuration and initialization
+  const firebaseConfig = {
+    apiKey: "AIzaSyAC4h55aA0Zz--V5ejyndzR5WC_-9rAPio",
+    authDomain: "subscribe-bot-6f9b2.firebaseapp.com",
+    databaseURL: "https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com",
+    projectId: "subscribe-bot-6f9b2",
+    storageBucket: "subscribe-bot-6f9b2.firebasestorage.app",
+    messagingSenderId: "141787931031",
+    appId: "1:141787931031:web:2108a3e930f5ce4fbc64d2",
+    measurementId: "G-HSDKCJB14Y"
+  };
+  
   // Import Firebase functions from CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
   import { getDatabase, ref, get, child, update, runTransaction as rtdbTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
@@ -311,7 +303,6 @@
   // State
   let currentFilter = 'boy';
   let isLoading = false;
-  let allNamesData = {}; // Cache for all names
 
   // Constants for caching
   const CACHE_KEY_PREFIX = 'names_cache_';
