@@ -29,7 +29,7 @@
     }
   </style>
   <script src="https://cdn.tailwindcss.com"> </script>
-  <link href="./rimixicon.css" rel="stylesheet">
+  <link href="./remixicon.css" rel="stylesheet">
   
   <script>
     tailwind.config = {
@@ -282,7 +282,7 @@
 
   // Import Firebase functions from CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-  import { getDatabase, ref, onValue, get, child, update, runTransaction as rtdbTransaction, query, orderByChild, limitToFirst, startAt, endAt } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+  import { getDatabase, ref, get, child, update, runTransaction as rtdbTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
   // Initialize Firebase
   let app, db;
@@ -306,7 +306,13 @@
   // State
   let currentFilter = 'boy';
   let isLoading = false;
-  
+  let allNamesData = {}; // Cache for all names
+
+  // Constants for caching
+  const CACHE_KEY_PREFIX = 'names_cache_';
+  const CACHE_TIMESTAMP_KEY_PREFIX = 'names_cache_timestamp_';
+  const CACHE_DURATION_MS = 30 * 24 * 60 * 60 * 1000; // 30 days in milliseconds
+
   // Function to render a single name card
   function renderNameCard(name) {
     return `
@@ -332,51 +338,75 @@
       </a>
     `;
   }
+  
+  // New unified function to fetch data from cache or Firebase
+  async function getNamesData(filter) {
+    const cacheKey = CACHE_KEY_PREFIX + filter;
+    const cacheTimestampKey = CACHE_TIMESTAMP_KEY_PREFIX + filter;
+    const cachedData = localStorage.getItem(cacheKey);
+    const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
 
-  // Function to fetch and render all names based on filter
-  async function fetchAndRenderNames() {
+    if (cachedData && cachedTimestamp && (Date.now() - cachedTimestamp < CACHE_DURATION_MS)) {
+        console.log("Using cached data for filter:", filter);
+        return JSON.parse(cachedData);
+    } else {
+        console.log("Fetching new data from Firebase for filter:", filter);
+        const namesRef = ref(db, `${filter}_names`);
+        const popularityRef = ref(db, 'popularity/click');
+        try {
+            const [namesSnapshot, popularitySnapshot] = await Promise.all([
+                get(namesRef),
+                get(popularityRef)
+            ]);
+            
+            const namesData = namesSnapshot.val() || {};
+            const clickCounts = popularitySnapshot.val() || {};
+            
+            const namesArray = Object.keys(namesData).map(key => ({
+                ...namesData[key],
+                nameKey: key,
+                gender: filter,
+                clickCount: clickCounts[key] || 0
+            }));
+
+            // Save to cache
+            localStorage.setItem(cacheKey, JSON.stringify(namesArray));
+            localStorage.setItem(cacheTimestampKey, Date.now());
+
+            return namesArray;
+
+        } catch (error) {
+            console.error("Error fetching names from Firebase:", error);
+            return [];
+        }
+    }
+  }
+
+
+  // Function to render all names based on filter
+  async function renderNames(filter) {
     if (isLoading) return;
 
     isLoading = true;
     loadingSpinner.classList.remove('hidden');
+    nameListContainer.innerHTML = '';
+    noResultsMessage.classList.add('hidden');
 
-    const namesRef = ref(db, `${currentFilter}_names`);
-    const popularityRef = ref(db, 'popularity/click');
+    const namesArray = await getNamesData(filter);
+    
+    if (namesArray.length > 0) {
+        // Sort alphabetically
+        namesArray.sort((a, b) => a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' }));
 
-    try {
-        const [namesSnapshot, popularitySnapshot] = await Promise.all([
-            get(namesRef),
-            get(popularityRef)
-        ]);
-
-        const namesData = namesSnapshot.val() || {};
-        const clickCounts = popularitySnapshot.val() || {};
-        
-        let namesArray = Object.keys(namesData).map(key => ({
-            ...namesData[key],
-            nameKey: key,
-            gender: currentFilter,
-            clickCount: clickCounts[key] || 0
-        })).sort((a, b) => a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' }));
-
-        if (namesArray.length > 0) {
-            const nameCardsHTML = namesArray.map(renderNameCard).join('');
-            nameListContainer.innerHTML = nameCardsHTML;
-            noResultsMessage.classList.add('hidden');
-        } else {
-            nameListContainer.innerHTML = '';
-            noResultsMessage.classList.remove('hidden');
-        }
-
-    } catch (error) {
-        console.error("Error fetching names:", error);
-        nameListContainer.innerHTML = '';
+        const nameCardsHTML = namesArray.map(renderNameCard).join('');
+        nameListContainer.innerHTML = nameCardsHTML;
+    } else {
         noResultsMessage.classList.remove('hidden');
-    } finally {
-        isLoading = false;
-        loadingSpinner.classList.add('hidden');
     }
-}
+
+    isLoading = false;
+    loadingSpinner.classList.add('hidden');
+  }
 
 // Function to track a click on a name using Realtime Database transactions
 async function trackClick(nameKey) {
@@ -408,11 +438,9 @@ filterChips.forEach(chip => {
         currentFilter = chip.dataset.filter;
         
         // Reset state for new filter
-        nameListContainer.innerHTML = '';
-        noResultsMessage.classList.add('hidden');
         searchInput.value = '';
         
-        fetchAndRenderNames();
+        renderNames(currentFilter);
     });
 });
 
@@ -421,67 +449,34 @@ filterChips.forEach(chip => {
 let searchTimeout = null;
 searchInput.addEventListener('input', () => {
     clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
+    searchTimeout = setTimeout(async () => {
         const searchTerm = searchInput.value.trim().toLowerCase();
+        const namesArray = await getNamesData(currentFilter); // Get data from cache or Firebase
+        
         if (searchTerm.length > 0) {
-            fetchAndRenderSearch(searchTerm);
+            const filteredNames = namesArray.filter(name => {
+                return name.name_bn.toLowerCase().includes(searchTerm) || (name.meaning && name.meaning.toLowerCase().includes(searchTerm)) || (name.name_en && name.name_en.toLowerCase().includes(searchTerm));
+            }).sort((a,b) => {
+                if (b.clickCount !== a.clickCount) {
+                    return b.clickCount - a.clickCount;
+                }
+                return a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' });
+            });
+
+            if (filteredNames.length > 0) {
+                const nameCardsHTML = filteredNames.map(renderNameCard).join('');
+                nameListContainer.innerHTML = nameCardsHTML;
+                noResultsMessage.classList.add('hidden');
+            } else {
+                nameListContainer.innerHTML = '';
+                noResultsMessage.classList.remove('hidden');
+            }
         } else {
-            nameListContainer.innerHTML = '';
-            noResultsMessage.classList.add('hidden');
-            fetchAndRenderNames();
+            renderNames(currentFilter);
         }
     }, 300);
 });
 
-// New function for searching
-async function fetchAndRenderSearch(searchTerm) {
-    if (isLoading) return;
-    isLoading = true;
-    loadingSpinner.classList.remove('hidden');
-    nameListContainer.innerHTML = '';
-    noResultsMessage.classList.add('hidden');
-
-    const namesRef = ref(db, `${currentFilter}_names`);
-    const popularityRef = ref(db, 'popularity/click');
-
-    try {
-        const [namesSnapshot, popularitySnapshot] = await Promise.all([
-            get(namesRef),
-            get(popularityRef)
-        ]);
-
-        const allNamesData = namesSnapshot.val() || {};
-        const clickCounts = popularitySnapshot.val() || {};
-        
-        const filteredNames = Object.keys(allNamesData).filter(key => {
-            const name = allNamesData[key];
-            return name.name_bn.toLowerCase().includes(searchTerm) || (name.meaning && name.meaning.toLowerCase().includes(searchTerm)) || (name.name_en && name.name_en.toLowerCase().includes(searchTerm));
-        }).map(key => ({
-            ...allNamesData[key],
-            nameKey: key,
-            gender: currentFilter,
-            clickCount: clickCounts[key] || 0
-        })).sort((a,b) => {
-          if (b.clickCount !== a.clickCount) {
-            return b.clickCount - a.clickCount;
-          }
-          return a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' });
-        });
-
-        if (filteredNames.length > 0) {
-            const nameCardsHTML = filteredNames.map(renderNameCard).join('');
-            nameListContainer.innerHTML = nameCardsHTML;
-        } else {
-            noResultsMessage.classList.remove('hidden');
-        }
-
-    } catch (error) {
-        console.error("Error fetching search results:", error);
-    } finally {
-        isLoading = false;
-        loadingSpinner.classList.add('hidden');
-    }
-}
 
   // Event listener for dark mode toggle
   themeToggleBtn.addEventListener('click', () => {
