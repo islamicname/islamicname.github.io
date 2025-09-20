@@ -9,6 +9,8 @@
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./rimixicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://www.gstatic.com">
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
   <link rel="preconnect" href="https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com">
 
   <style>
@@ -29,10 +31,7 @@
       font-style: normal;
       font-display: swap;
     }
-  </style>
-  <script src="https://cdn.tailwindcss.com"> </script>
-  <link href="./remixicon.css" rel="stylesheet">
-  
+
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -268,6 +267,8 @@
   let firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
 
   // Add fallback values from the user's provided config if global config is not available
+<script type="module" defer>
+  // আপনার Firebase কোড
   if (!firebaseConfig.projectId) {
     const userFirebaseConfig = {
       apiKey: "AIzaSyAC4h55aA0Zz--V5ejyndzR5WC_-9rAPio",
@@ -281,6 +282,8 @@
     };
     firebaseConfig = userFirebaseConfig;
   }
+</script>
+
 
   // Import Firebase functions from CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -340,7 +343,7 @@
       </a>
     `;
   }
-  
+
   // New unified function to fetch data from cache or Firebase
   async function getNamesData(filter) {
     const cacheKey = CACHE_KEY_PREFIX + filter;
@@ -360,10 +363,10 @@
                 get(namesRef),
                 get(popularityRef)
             ]);
-            
+
             const namesData = namesSnapshot.val() || {};
             const clickCounts = popularitySnapshot.val() || {};
-            
+
             const namesArray = Object.keys(namesData).map(key => ({
                 ...namesData[key],
                 nameKey: key,
@@ -395,7 +398,7 @@
     noResultsMessage.classList.add('hidden');
 
     const namesArray = await getNamesData(filter);
-    
+
     if (namesArray.length > 0) {
         // Sort alphabetically
         namesArray.sort((a, b) => a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' }));
@@ -438,10 +441,10 @@ filterChips.forEach(chip => {
         document.querySelectorAll('.chip[data-filter]').forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         currentFilter = chip.dataset.filter;
-        
+
         // Reset state for new filter
         searchInput.value = '';
-        
+
         renderNames(currentFilter);
     });
 });
@@ -454,7 +457,7 @@ searchInput.addEventListener('input', () => {
     searchTimeout = setTimeout(async () => {
         const searchTerm = searchInput.value.trim().toLowerCase();
         const namesArray = await getNamesData(currentFilter); // Get data from cache or Firebase
-        
+
         if (searchTerm.length > 0) {
             const filteredNames = namesArray.filter(name => {
                 return name.name_bn.toLowerCase().includes(searchTerm) || (name.meaning && name.meaning.toLowerCase().includes(searchTerm)) || (name.name_en && name.name_en.toLowerCase().includes(searchTerm));
