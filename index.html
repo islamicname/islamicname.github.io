@@ -6,6 +6,9 @@
   <title>ইসলামিক নামের ভান্ডার — সুন্দর অর্থবহ মুসলিম নাম খুঁজুন</title>
   <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
 
+  <!-- Preconnect to Firebase to speed up data fetching -->
+  <link rel="preconnect" href="https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com">
+
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
@@ -18,6 +21,8 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  /* Cache font files for 1 year */
+  /* This requires server-side configuration to set Cache-Control headers */
 }
 
 /* Noto Nastaliq Urdu font loaded locally */
@@ -222,18 +227,13 @@
     measurementId: "G-HSDKCJB14Y"
   };
 
-  // Inline Firebase functions to avoid critical request chain
-  function initializeApp(config) {
-    // A simplified in-memory version for the demo
-    return { name: "default", config };
-  }
+  // Import Firebase functions from CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+  import { getDatabase, ref, get, child, update, runTransaction as rtdbTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
-  function getDatabase(app) {
-    // A simplified in-memory version for the demo
-    return { app };
-  }
-
+  // Initialize Firebase
   let app, db;
+
   try {
     app = initializeApp(firebaseConfig);
     db = getDatabase(app);
@@ -286,27 +286,34 @@
 
   // New unified function to fetch data from cache or Firebase
   async function getNamesData(filter) {
+    // Check in-memory cache first
+    if (cachedNames[filter] && cachedNames[filter].length > 0) {
+      console.log("Using in-memory cache for filter:", filter);
+      return cachedNames[filter];
+    }
+
     const cacheKey = CACHE_KEY_PREFIX + filter;
     const cacheTimestampKey = CACHE_TIMESTAMP_KEY_PREFIX + filter;
     const cachedData = localStorage.getItem(cacheKey);
     const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
 
     if (cachedData && cachedTimestamp && (Date.now() - cachedTimestamp < CACHE_DURATION_MS)) {
-        console.log("Using cached data for filter:", filter);
+        console.log("Using localStorage cache for filter:", filter);
         const data = JSON.parse(cachedData);
         cachedNames[filter] = data; // Store in memory
         return data;
     } else {
         console.log("Fetching new data from Firebase for filter:", filter);
-        const namesRef = "https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com/" + filter + "_names.json";
-        const popularityRef = "https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com/popularity/click.json";
+        const namesRef = ref(db, `${filter}_names`);
+        const popularityRef = ref(db, 'popularity/click');
         try {
-            const [namesResponse, popularityResponse] = await Promise.all([
-                fetch(namesRef),
-                fetch(popularityRef)
+            const [namesSnapshot, popularitySnapshot] = await Promise.all([
+                get(namesRef),
+                get(popularityRef)
             ]);
-            const namesData = await namesResponse.json() || {};
-            const clickCounts = await popularityResponse.json() || {};
+
+            const namesData = namesSnapshot.val() || {};
+            const clickCounts = popularitySnapshot.val() || {};
 
             const namesArray = Object.keys(namesData).map(key => ({
                 ...namesData[key],
@@ -337,12 +344,9 @@
     loadingSpinner.style.display = 'block';
     nameListContainer.innerHTML = '';
     noResultsMessage.style.display = 'none';
-    
-    let namesArray = cachedNames[filter]; // Check in-memory cache first
-    if (!namesArray) {
-      namesArray = await getNamesData(filter);
-    }
-    
+
+    const namesArray = await getNamesData(filter);
+
     if (namesArray.length > 0) {
         // Sort alphabetically
         namesArray.sort((a, b) => a.name_en.localeCompare(b.name_en, 'en', { sensitivity: 'base' }));
@@ -356,11 +360,27 @@
     isLoading = false;
     loadingSpinner.style.display = 'none';
   }
-  
-// Function to track a click on a name
+
+// Function to track a click on a name using Realtime Database transactions
 async function trackClick(nameKey) {
-    // This is a placeholder as direct RTDB transactions are not possible with fetch
-    console.log(`Click for ${nameKey} tracked successfully.`);
+    if (!db) {
+        console.warn("Database not ready. Click not tracked.");
+        return;
+    }
+    const clickRef = ref(db, `popularity/click/${nameKey}`);
+
+    try {
+      await rtdbTransaction(clickRef, (currentData) => {
+        if (currentData) {
+          return (currentData || 0) + 1;
+        } else {
+          return 1;
+        }
+      });
+      console.log(`Click for ${nameKey} tracked successfully.`);
+    } catch (e) {
+        console.error("Error tracking click: ", e);
+    }
 }
 
 // Event listeners for main filters
