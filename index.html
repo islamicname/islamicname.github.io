@@ -131,15 +131,6 @@
   box-shadow: 0 0 0 3px rgba(39, 179, 146, 0.2);
 }
 
-/* Dark mode brand colors */
-@media (prefers-color-scheme: dark) {
-  .dark\:text-brand-300 { color: var(--brand-300); }
-  .dark\:text-brand-400 { color: var(--brand-400); }
-}
-
-.dark .dark\:text-brand-300 { color: var(--brand-300); }
-.dark .dark\:text-brand-400 { color: var(--brand-400); }
-
 /* Custom utility classes */
 .backdrop-blur-custom {
   backdrop-filter: saturate(160%) blur(10px);
@@ -217,9 +208,9 @@
     }
   </style>
 </head>
-<body class="min-h-screen font-['Hind_Siliguri',_system-ui] bg-slate-50 text-gray-900 transition-all duration-300 dark:bg-gray-950 dark:text-gray-100">
+<body class="min-h-screen font-['Hind_Siliguri',_system-ui] bg-slate-50 text-gray-900 transition-all duration-300">
 
-<div class="fixed inset-0 w-full h-full transition-all duration-300 -z-10 bg-gradient-to-tr from-[#d1daf7] to-[#b1e5d5] dark:from-[#1f2937] dark:to-[#0b3b33] opacity-50 dark:opacity-70"></div>
+<div class="fixed inset-0 w-full h-full transition-all duration-300 -z-10 bg-gradient-to-tr from-[#d1daf7] to-[#b1e5d5] opacity-50"></div>
 
 <div class="container mx-auto px-4 py-8">
   <header class="flex items-center justify-between py-4 md:py-6">
@@ -229,24 +220,19 @@
         <span>ইসলামিক নামের ভান্ডার</span>
       </h1>
     </div>
-    <div class="flex items-center gap-2">
-      <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors" aria-label="Toggle dark mode">
-        <i class="ri-moon-line text-2xl" id="theme-icon"></i>
-      </button>
-    </div>
   </header>
 
   <div class="mb-8">
     <div class="relative mb-4">
-      <input type="text" id="name-search" placeholder="নাম খুঁজুন..." class="w-full pl-12 pr-4 py-3 rounded-2xl backdrop-blur-custom bg-white/70 border border-gray-900/10 dark:bg-gray-800/70 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500 placeholder-gray-500 dark:placeholder-gray-400 transition-shadow">
-      <i class="ri-search-line text-2xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"></i>
+      <input type="text" id="name-search" placeholder="নাম খুঁজুন..." class="w-full pl-12 pr-4 py-3 rounded-2xl backdrop-blur-custom bg-white/70 border border-gray-900/10 focus:outline-none focus:ring-2 focus:ring-brand-500 placeholder-gray-500 transition-shadow">
+      <i class="ri-search-line text-2xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
     </div>
 
     <div class="flex flex-wrap items-center gap-3 md:gap-4 justify-center">
-      <span class="text-sm text-gray-600 dark:text-gray-300">নামের ধরণ:</span>
+      <span class="text-sm text-gray-600">নামের ধরণ:</span>
       <div class="flex flex-wrap gap-2 md:gap-3">
-        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 dark:bg-gray-800/70 dark:border-white/10 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="boy"><i class="ri-user-line"></i><span>ছেলে</span></div>
-        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 dark:bg-gray-800/70 dark:border-white/10 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="girl"><i class="ri-women-line"></i><span>মেয়ে</span></div>
+        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="boy"><i class="ri-user-line"></i><span>ছেলে</span></div>
+        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="girl"><i class="ri-women-line"></i><span>মেয়ে</span></div>
       </div>
     </div>
   </div>
@@ -264,9 +250,9 @@
   </div>
 </div>
 
-<div id="modal" class="hidden fixed inset-0 z-[100] overflow-auto modal-backdrop bg-black/40 dark:bg-black/60 animate-[fadeIn_0.3s_forwards]">
-  <div id="modal-content" class="relative bg-white/85 dark:bg-gray-900/75 m-[10%_auto] p-8 rounded-[24px] w-[90%] max-w-[600px] shadow-[16px_32px_rgba(0,0,0,0.15)] animate-[slideIn_0.4s_ease-out_forwards] border border-gray-900/10 dark:border-white/10">
-    <span class="close-btn absolute top-[10px] right-[15px] text-3xl font-bold text-gray-400 dark:text-gray-300 hover:text-gray-600 dark:hover:text-white cursor-pointer transition-colors duration-200">&times;</span>
+<div id="modal" class="hidden fixed inset-0 z-[100] overflow-auto modal-backdrop bg-black/40 animate-[fadeIn_0.3s_forwards]">
+  <div id="modal-content" class="relative bg-white/85 m-[10%_auto] p-8 rounded-[24px] w-[90%] max-w-[600px] shadow-[16px_32px_rgba(0,0,0,0.15)] animate-[slideIn_0.4s_ease-out_forwards] border border-gray-900/10">
+    <span class="close-btn absolute top-[10px] right-[15px] text-3xl font-bold text-gray-400 hover:text-gray-600 cursor-pointer transition-colors duration-200">&times;</span>
     <div id="modal-body"></div>
   </div>
 </div>
@@ -304,8 +290,6 @@
   const filterChips = document.querySelectorAll('.chip[data-filter]');
   const noResultsMessage = document.getElementById('no-results');
   const loadingSpinner = document.getElementById('loading-spinner');
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
 
   // State
   let currentFilter = 'boy';
@@ -319,24 +303,24 @@
   // Function to render a single name card
   function renderNameCard(name) {
     return `
-      <a href="details.html?nameKey=${name.nameKey}" data-name-key="${name.nameKey}" class="name-card-link block bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-glass hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+      <a href="details.html?nameKey=${name.nameKey}" data-name-key="${name.nameKey}" class="name-card-link block bg-white rounded-3xl p-6 shadow-glass hover:shadow-lg transition-shadow duration-300 cursor-pointer">
         <div class="flex justify-between items-start mb-4">
-          <h2 class="text-2xl md:text-3xl font-bold text-brand-700 dark:text-brand-300">
+          <h2 class="text-2xl md:text-3xl font-bold text-brand-700">
             ${name.name_bn}
           </h2>
         </div>
         <div class="mb-4">
-          <p class="text-gray-600 dark:text-gray-300">
+          <p class="text-gray-600">
             <strong>অর্থ:</strong> ${name.meaning}
           </p>
-          <p class="arabic text-2xl mt-2 text-gray-800 dark:text-gray-200">
+          <p class="arabic text-2xl mt-2 text-gray-800">
             ${name.name_ar}
           </p>
         </div>
         <div class="flex flex-wrap gap-2 text-sm">
-          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 dark:border-white/10 bg-gray-900/5 dark:bg-white/5"><i class="ri-user-${name.gender === 'boy' ? 'line' : 'women-line'}"></i> ${name.gender === 'boy' ? 'ছেলে' : 'মেয়ে'}</span>
-          ${name.source ? `<span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 dark:border-white/10 bg-gray-900/5 dark:bg-white/5"><i class="ri-book-3-line"></i> ${name.source}</span>` : ''}
-          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 dark:border-white/10 bg-gray-900/5 dark:bg-white/5"><i class="ri-fire-line"></i> ${name.clickCount || 0} clicks</span>
+          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 bg-gray-900/5"><i class="ri-user-${name.gender === 'boy' ? 'line' : 'women-line'}"></i> ${name.gender === 'boy' ? 'ছেলে' : 'মেয়ে'}</span>
+          ${name.source ? `<span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 bg-gray-900/5"><i class="ri-book-3-line"></i> ${name.source}</span>` : ''}
+          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 bg-gray-900/5"><i class="ri-fire-line"></i> ${name.clickCount || 0} clicks</span>
         </div>
       </a>
     `;
@@ -479,28 +463,6 @@ searchInput.addEventListener('input', () => {
     }, 300);
 });
 
-// Event listener for dark mode toggle
-themeToggleBtn.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  const isDark = document.documentElement.classList.contains('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  if (isDark) {
-    themeIcon.classList.remove('ri-moon-line');
-    themeIcon.classList.add('ri-sun-line');
-  } else {
-    themeIcon.classList.remove('ri-sun-line');
-    themeIcon.classList.add('ri-moon-line');
-  }
-});
-
-// Set initial theme based on localStorage
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-  document.documentElement.classList.add('dark');
-  themeIcon.classList.remove('ri-moon-line');
-  themeIcon.classList.add('ri-sun-line');
-}
-
 // Initial data fetch only for 'boy' filter
 document.addEventListener('DOMContentLoaded', () => {
   const boyFilterChip = document.querySelector('.chip[data-filter="boy"]');
@@ -511,3 +473,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
