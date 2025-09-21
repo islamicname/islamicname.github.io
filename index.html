@@ -5,63 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ইসলামিক নামের ভান্ডার — সুন্দর অর্থবহ মুসলিম নাম খুঁজুন</title>
   <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
-  
+
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/font/woff2" crossorigin>
+  <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
   <link href="./remixicon.css" rel="stylesheet">
   <link href="./tailwind.css" rel="stylesheet">
-
-
   <link rel="preconnect" href="https://www.gstatic.com">
 
 
-  <style>
-    /* Hind Siliguri fonts loaded locally */
-    @font-face {
-      font-family: 'Hind Siliguri';
-      src: url('./HindSiliguri.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
+<style>
+/* Hind Siliguri fonts loaded locally */
+@font-face {
+  font-family: 'Hind Siliguri';
+  src: url('./HindSiliguri.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-    /* Noto Nastaliq Urdu font loaded locally */
-    @font-face {
-      font-family: 'Noto Nastaliq Urdu';
-      src: url('./NotoNastaliqUrdu.woff2') format('woff2');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-  </style>
+/* Noto Nastaliq Urdu font loaded locally */
+@font-face {
+  font-family: 'Noto Nastaliq Urdu';
+  src: url('./NotoNastaliqUrdu.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
-  <script src="https://cdn.tailwindcss.com"> </script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f3faf8', 100: '#d7f2ea', 200: '#b1e5d5', 300: '#82d6bd',
-              400: '#4ec5a5', 500: '#27b392', 600: '#1d9b83', 700: '#187e6b',
-              800: '#156257', 900: '#114f47'
-            },
-            aurora: {
-              50: '#f7f8fc', 100: '#e7ecfa', 200: '#d1daf7', 300: '#b0bff4',
-              400: '#8aa2ef', 500: '#6b86e7', 600: '#576bd8', 700: '#4a59bd',
-              800: '#3e4a98', 900: '#353f7a'
-            }
-          },
-          boxShadow: {
-            'glass': '0 10px 30px rgba(16, 24, 40, 0.08)',
-            'glow': '0 0 0 3px rgba(39,179,146,0.2)'
-          }
-        }
-      }
-    }
-  </script>
+/* Brand color variables */
+:root {
+  --brand-50: #f3faf8;
+  --brand-100: #d7f2ea;
+  --brand-200: #b1e5d5;
+  --brand-300: #82d6bd;
+  --brand-400: #4ec5a5;
+  --brand-500: #27b392;
+  --brand-600: #1d9b83;
+  --brand-700: #187e6b;
+  --brand-800: #156257;
+  --brand-900: #114f47;
+  
+  --aurora-50: #f7f8fc;
+  --aurora-100: #e7ecfa;
+  --aurora-200: #d1daf7;
+  --aurora-300: #b0bff4;
+  --aurora-400: #8aa2ef;
+  --aurora-500: #6b86e7;
+  --aurora-600: #576bd8;
+  --aurora-700: #4a59bd;
+  --aurora-800: #3e4a98;
+  --aurora-900: #353f7a;
+}
+
+/* Brand color classes */
+.text-brand-50 { color: var(--brand-50); }
+.text-brand-100 { color: var(--brand-100); }
+.text-brand-200 { color: var(--brand-200); }
+.text-brand-300 { color: var(--brand-300); }
+.text-brand-400 { color: var(--brand-400); }
+.text-brand-500 { color: var(--brand-500); }
+.text-brand-600 { color: var(--brand-600); }
+.text-brand-700 { color: var(--brand-700); }
+.text-brand-800 { color: var(--brand-800); }
+.text-brand-900 { color: var(--brand-900); }
+
+.bg-brand-50 { background-color: var(--brand-50); }
+.bg-brand-100 { background-color: var(--brand-100); }
+.bg-brand-200 { background-color: var(--brand-200); }
+.bg-brand-300 { background-color: var(--brand-300); }
+.bg-brand-400 { background-color: var(--brand-400); }
+.bg-brand-500 { background-color: var(--brand-500); }
+.bg-brand-600 { background-color: var(--brand-600); }
+.bg-brand-700 { background-color: var(--brand-700); }
+.bg-brand-800 { background-color: var(--brand-800); }
+.bg-brand-900 { background-color: var(--brand-900); }
+
+.border-brand-50 { border-color: var(--brand-50); }
+.border-brand-100 { border-color: var(--brand-100); }
+.border-brand-200 { border-color: var(--brand-200); }
+.border-brand-300 { border-color: var(--brand-300); }
+.border-brand-400 { border-color: var(--brand-400); }
+.border-brand-500 { border-color: var(--brand-500); }
+.border-brand-600 { border-color: var(--brand-600); }
+.border-brand-700 { border-color: var(--brand-700); }
+.border-brand-800 { border-color: var(--brand-800); }
+.border-brand-900 { border-color: var(--brand-900); }
+
+/* Aurora color classes */
+.text-aurora-50 { color: var(--aurora-50); }
+.text-aurora-100 { color: var(--aurora-100); }
+.text-aurora-200 { color: var(--aurora-200); }
+.text-aurora-300 { color: var(--aurora-300); }
+.text-aurora-400 { color: var(--aurora-400); }
+.text-aurora-500 { color: var(--aurora-500); }
+.text-aurora-600 { color: var(--aurora-600); }
+.text-aurora-700 { color: var(--aurora-700); }
+.text-aurora-800 { color: var(--aurora-800); }
+.text-aurora-900 { color: var(--aurora-900); }
+
+.bg-aurora-50 { background-color: var(--aurora-50); }
+.bg-aurora-100 { background-color: var(--aurora-100); }
+.bg-aurora-200 { background-color: var(--aurora-200); }
+.bg-aurora-300 { background-color: var(--aurora-300); }
+.bg-aurora-400 { background-color: var(--aurora-400); }
+.bg-aurora-500 { background-color: var(--aurora-500); }
+.bg-aurora-600 { background-color: var(--aurora-600); }
+.bg-aurora-700 { background-color: var(--aurora-700); }
+.bg-aurora-800 { background-color: var(--aurora-800); }
+.bg-aurora-900 { background-color: var(--aurora-900); }
+
+/* Focus ring for brand color */
+.focus\:ring-brand-500:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: var(--brand-500);
+  box-shadow: 0 0 0 3px rgba(39, 179, 146, 0.5);
+}
+
+/* Custom shadow classes */
+.shadow-glass {
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 0 3px rgba(39, 179, 146, 0.2);
+}
+
+/* Dark mode brand colors */
+@media (prefers-color-scheme: dark) {
+  .dark\:text-brand-300 { color: var(--brand-300); }
+  .dark\:text-brand-400 { color: var(--brand-400); }
+}
+
+.dark .dark\:text-brand-300 { color: var(--brand-300); }
+.dark .dark\:text-brand-400 { color: var(--brand-400); }
+
+/* Custom utility classes */
+.backdrop-blur-custom {
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+}
+
+.arabic {
+  font-family: 'Noto Nastaliq Urdu', serif;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 37%, rgba(0,0,0,0.06) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+/* Animation utilities */
+.animate-fadeIn {
+  animation: fadeIn 0.3s forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out forwards;
+}
+</style>
   <style>
     /* Custom utility classes, as some are not possible to implement with Tailwind
     such as backdrop-filter and complex animations. */
@@ -159,7 +283,7 @@
     appId: "1:141787931031:web:2108a3e930f5ce4fbc64d2",
     measurementId: "G-HSDKCJB14Y"
   };
-  
+
   // Import Firebase functions from CDN
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
   import { getDatabase, ref, get, child, update, runTransaction as rtdbTransaction } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
