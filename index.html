@@ -8,7 +8,6 @@
 
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./remixicon.css" rel="stylesheet">
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
@@ -29,6 +28,28 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Remixicon CSS */
+@font-face {
+  font-family: "remixicon";
+  src: url('./remixicon.woff2') format('woff2');
+}
+[class^="ri-"], [class*=" ri-"] {
+  font-family: 'remixicon' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ri-book-2-line:before { content: "\ead3"; }
+.ri-search-line:before { content: "\f0d1"; }
+.ri-user-line:before { content: "\f264"; }
+.ri-women-line:before { content: "\f2ce"; }
+.ri-book-3-line:before { content: "\ead5"; }
+.ri-fire-line:before { content: "\ed33"; }
+.ri-error-warning-line:before { content: "\eca1"; }
+.ri-arrow-turn-forward-line:before { content: "\f2e9"; }
+.ri-home-fill:before { content: "\ee26"; }
 
 /* Brand color variables */
 :root {
