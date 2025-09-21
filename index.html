@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="bn" class="scroll-smooth">
+<html lang="bn" style="scroll-behavior: smooth;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ইসলামিক নামের ভান্ডার — সুন্দর অর্থবহ মুসলিম নাম খুঁজুন</title>
-  <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
+  <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
 
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
   <link href="./remixicon.css" rel="stylesheet">
-  <link href="./tailwind.css" rel="stylesheet">
-  <link rel="preconnect" href="https://www.gstatic.com">
-
 
 <style>
 /* Hind Siliguri fonts loaded locally */
@@ -58,79 +55,6 @@
   --aurora-900: #353f7a;
 }
 
-/* Brand color classes */
-.text-brand-50 { color: var(--brand-50); }
-.text-brand-100 { color: var(--brand-100); }
-.text-brand-200 { color: var(--brand-200); }
-.text-brand-300 { color: var(--brand-300); }
-.text-brand-400 { color: var(--brand-400); }
-.text-brand-500 { color: var(--brand-500); }
-.text-brand-600 { color: var(--brand-600); }
-.text-brand-700 { color: var(--brand-700); }
-.text-brand-800 { color: var(--brand-800); }
-.text-brand-900 { color: var(--brand-900); }
-
-.bg-brand-50 { background-color: var(--brand-50); }
-.bg-brand-100 { background-color: var(--brand-100); }
-.bg-brand-200 { background-color: var(--brand-200); }
-.bg-brand-300 { background-color: var(--brand-300); }
-.bg-brand-400 { background-color: var(--brand-400); }
-.bg-brand-500 { background-color: var(--brand-500); }
-.bg-brand-600 { background-color: var(--brand-600); }
-.bg-brand-700 { background-color: var(--brand-700); }
-.bg-brand-800 { background-color: var(--brand-800); }
-.bg-brand-900 { background-color: var(--brand-900); }
-
-.border-brand-50 { border-color: var(--brand-50); }
-.border-brand-100 { border-color: var(--brand-100); }
-.border-brand-200 { border-color: var(--brand-200); }
-.border-brand-300 { border-color: var(--brand-300); }
-.border-brand-400 { border-color: var(--brand-400); }
-.border-brand-500 { border-color: var(--brand-500); }
-.border-brand-600 { border-color: var(--brand-600); }
-.border-brand-700 { border-color: var(--brand-700); }
-.border-brand-800 { border-color: var(--brand-800); }
-.border-brand-900 { border-color: var(--brand-900); }
-
-/* Aurora color classes */
-.text-aurora-50 { color: var(--aurora-50); }
-.text-aurora-100 { color: var(--aurora-100); }
-.text-aurora-200 { color: var(--aurora-200); }
-.text-aurora-300 { color: var(--aurora-300); }
-.text-aurora-400 { color: var(--aurora-400); }
-.text-aurora-500 { color: var(--aurora-500); }
-.text-aurora-600 { color: var(--aurora-600); }
-.text-aurora-700 { color: var(--aurora-700); }
-.text-aurora-800 { color: var(--aurora-800); }
-.text-aurora-900 { color: var(--aurora-900); }
-
-.bg-aurora-50 { background-color: var(--aurora-50); }
-.bg-aurora-100 { background-color: var(--aurora-100); }
-.bg-aurora-200 { background-color: var(--aurora-200); }
-.bg-aurora-300 { background-color: var(--aurora-300); }
-.bg-aurora-400 { background-color: var(--aurora-400); }
-.bg-aurora-500 { background-color: var(--aurora-500); }
-.bg-aurora-600 { background-color: var(--aurora-600); }
-.bg-aurora-700 { background-color: var(--aurora-700); }
-.bg-aurora-800 { background-color: var(--aurora-800); }
-.bg-aurora-900 { background-color: var(--aurora-900); }
-
-/* Focus ring for brand color */
-.focus\:ring-brand-500:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: var(--brand-500);
-  box-shadow: 0 0 0 3px rgba(39, 179, 146, 0.5);
-}
-
-/* Custom shadow classes */
-.shadow-glass {
-  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
-}
-
-.shadow-glow {
-  box-shadow: 0 0 0 3px rgba(39, 179, 146, 0.2);
-}
-
 /* Custom utility classes */
 .backdrop-blur-custom {
   backdrop-filter: saturate(160%) blur(10px);
@@ -162,13 +86,17 @@
   100% { background-position: -200% 0; }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .animate-shimmer {
   background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 37%, rgba(0,0,0,0.06) 63%);
   background-size: 400% 100%;
   animation: shimmer 1.2s ease-in-out infinite;
 }
 
-/* Animation utilities */
 .animate-fadeIn {
   animation: fadeIn 0.3s forwards;
 }
@@ -176,83 +104,86 @@
 .animate-slideIn {
   animation: slideIn 0.4s ease-out forwards;
 }
+
+.close-btn:hover {
+  color: #4b5563 !important;
+}
+
+.chip:hover {
+  transform: translateY(-2px) !important;
+}
+
+.chip.active {
+  background-color: var(--brand-500) !important;
+  color: white !important;
+  border-color: var(--brand-600) !important;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .container-header {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .main-title {
+    font-size: 2.25rem !important;
+    gap: 1rem !important;
+  }
+  
+  .name-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .name-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
 </style>
-  <style>
-    /* Custom utility classes, as some are not possible to implement with Tailwind
-    such as backdrop-filter and complex animations. */
-    .backdrop-blur-custom {
-      backdrop-filter: saturate(160%) blur(10px);
-      -webkit-backdrop-filter: saturate(160%) blur(10px);
-    }
-    .arabic {
-      font-family: 'Noto Nastaliq Urdu', serif;
-    }
-    .modal-backdrop {
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-    }
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-    @keyframes slideIn {
-        from { transform: translateY(50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
-
-    .animate-shimmer {
-      background: linear-gradient(90deg, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.12) 37%, rgba(0,0,0,0.06) 63%);
-      background-size: 400% 100%;
-      animation: shimmer 1.2s ease-in-out infinite;
-    }
-  </style>
 </head>
-<body class="min-h-screen font-['Hind_Siliguri',_system-ui] bg-slate-50 text-gray-900 transition-all duration-300">
+<body style="min-height: 100vh; font-family: 'Hind Siliguri', system-ui; background-color: #f8fafc; color: #111827; transition: all 0.3s;">
 
-<div class="fixed inset-0 w-full h-full transition-all duration-300 -z-10 bg-gradient-to-tr from-[#d1daf7] to-[#b1e5d5] opacity-50"></div>
-
-<div class="container mx-auto px-4 py-8">
-  <header class="flex items-center justify-between py-4 md:py-6">
-    <div class="flex items-center gap-2 md:gap-4">
-      <h1 class="text-3xl md:text-4xl font-bold flex items-center gap-2">
-        <i class="ri-book-2-line text-brand-600"></i>
+<div style="position: fixed; inset: 0; width: 100%; height: 100%; transition: all 0.3s; z-index: -10; background: linear-gradient(to top right, #d1daf7, #b1e5d5); opacity: 0.5;"> </div>
+  <header class="container-header" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 1 1.5rem 1;">
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <h1 class="main-title" style="font-size: 2rem; font-weight: bold; display: flex; align-items: center; gap: 0.5rem; margin-left: 10px;">
+        <i class="ri-book-2-line" style="color: var(--brand-600);"></i>
         <span>ইসলামিক নামের ভান্ডার</span>
       </h1>
-    </div>
   </header>
 
-  <div class="mb-8">
-    <div class="relative mb-4">
-      <input type="text" id="name-search" placeholder="নাম খুঁজুন..." class="w-full pl-12 pr-4 py-3 rounded-2xl backdrop-blur-custom bg-white/70 border border-gray-900/10 focus:outline-none focus:ring-2 focus:ring-brand-500 placeholder-gray-500 transition-shadow">
-      <i class="ri-search-line text-2xl absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+  <div style="margin-bottom: 2rem;">
+    <div style="position: relative; margin-bottom: 1rem;">
+      <input type="text" id="name-search" placeholder="নাম খুঁজুন..." style="width: 280px; height: 40px; padding-left: 60px; padding-right: 1px; padding-top: 1px; padding-bottom: 1px; border-radius: 18px; backdrop-filter: saturate(160%) blur(10px); -webkit-backdrop-filter: saturate(160%) blur(10px); background-color: rgba(255, 255, 255, 0.7); border: 1px solid rgba(17, 24, 39, 0.1); outline: none; transition: box-shadow 0.2s; color: #374151;" onfocus="this.style.boxShadow = '0 0 0 3px rgba(39, 179, 146, 0.5)'" onblur="this.style.boxShadow = 'none'">
+      <i style="font-size: 1.5rem; position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: #9ca3af;" class="ri-search-line"></i>
     </div>
 
-    <div class="flex flex-wrap items-center gap-3 md:gap-4 justify-center">
-      <span class="text-sm text-gray-600">নামের ধরণ:</span>
-      <div class="flex flex-wrap gap-2 md:gap-3">
-        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="boy"><i class="ri-user-line"></i><span>ছেলে</span></div>
-        <div class="chip flex items-center gap-2 rounded-full px-4 py-2 border border-gray-900/10 bg-white/70 cursor-pointer select-none transition-all duration-150 hover:-translate-y-0.5" data-filter="girl"><i class="ri-women-line"></i><span>মেয়ে</span></div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: center;">
+      <span style="font-size: 0.875rem; color: #4b5563;">নামের ধরণ:</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <div class="chip" data-filter="boy" style="display: flex; align-items: center; gap: 0.5rem; border-radius: 9999px; padding: 0.5rem 1rem; border: 1px solid rgba(17, 24, 39, 0.1); background-color: rgba(255, 255, 255, 0.7); cursor: pointer; user-select: none; transition: all 0.15s; transform: translateY(0);"><i class="ri-user-line"></i><span>ছেলে</span></div>
+        <div class="chip" data-filter="girl" style="display: flex; align-items: center; gap: 0.5rem; border-radius: 9999px; padding: 0.5rem 1rem; border: 1px solid rgba(17, 24, 39, 0.1); background-color: rgba(255, 255, 255, 0.7); cursor: pointer; user-select: none; transition: all 0.15s; transform: translateY(0);"><i class="ri-women-line"></i><span>মেয়ে</span></div>
       </div>
     </div>
   </div>
 
-  <div id="name-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div id="name-list" class="name-grid" style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem;">
   </div>
 
-  <div id="no-results" class="hidden text-center text-xl text-gray-500 py-16">
-    <i class="ri-error-warning-line text-5xl mb-4"></i>
+  <div id="no-results" style="display: none; text-align: center; font-size: 1.25rem; color: #6b7280; padding: 4rem 0;">
+    <i class="ri-error-warning-line" style="font-size: 3rem; margin-bottom: 1rem;"></i>
     <p>কোন নাম পাওয়া যায়নি।</p>
   </div>
 
-  <div id="loading-spinner" class="hidden text-center py-16">
-    <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-brand-500 mx-auto"></div>
+  <div id="loading-spinner" style="display: none; text-align: center; padding: 4rem 0;">
+    <div style="animation: spin 1s linear infinite; border-radius: 9999px; height: 4rem; width: 4rem; border-top: 2px solid var(--brand-500); border-bottom: 2px solid var(--brand-500); margin: 0 auto;"></div>
   </div>
 </div>
 
-<div id="modal" class="hidden fixed inset-0 z-[100] overflow-auto modal-backdrop bg-black/40 animate-[fadeIn_0.3s_forwards]">
-  <div id="modal-content" class="relative bg-white/85 m-[10%_auto] p-8 rounded-[24px] w-[90%] max-w-[600px] shadow-[16px_32px_rgba(0,0,0,0.15)] animate-[slideIn_0.4s_ease-out_forwards] border border-gray-900/10">
-    <span class="close-btn absolute top-[10px] right-[15px] text-3xl font-bold text-gray-400 hover:text-gray-600 cursor-pointer transition-colors duration-200">&times;</span>
+<div id="modal" style="display: none; position: fixed; inset: 0; z-index: 100; overflow: auto; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); background-color: rgba(0, 0, 0, 0.4); animation: fadeIn 0.3s forwards;">
+  <div id="modal-content" style="position: relative; background-color: rgba(255, 255, 255, 0.85); margin: 10% auto; padding: 2rem; border-radius: 1.5rem; width: 90%; max-width: 600px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); animation: slideIn 0.4s ease-out forwards; border: 1px solid rgba(17, 24, 39, 0.1);">
+    <span class="close-btn" style="position: absolute; top: 10px; right: 15px; font-size: 2rem; font-weight: bold; color: #9ca3af; cursor: pointer; transition: color 0.2s;">&times;</span>
     <div id="modal-body"></div>
   </div>
 </div>
@@ -303,24 +234,24 @@
   // Function to render a single name card
   function renderNameCard(name) {
     return `
-      <a href="details.html?nameKey=${name.nameKey}" data-name-key="${name.nameKey}" class="name-card-link block bg-white rounded-3xl p-6 shadow-glass hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-        <div class="flex justify-between items-start mb-4">
-          <h2 class="text-2xl md:text-3xl font-bold text-brand-700">
+      <a href="details.html?nameKey=${name.nameKey}" data-name-key="${name.nameKey}" class="name-card-link" style="display: block; background-color: white; border-radius: 1.5rem; margin-left: 5px; margin-right: 5px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08); transition: box-shadow 0.3s; cursor: pointer; text-decoration: none; color: inherit;" onmouseover="this.style.boxShadow='0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'" onmouseout="this.style.boxShadow='0 10px 30px rgba(16, 24, 40, 0.08)'">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+          <h2 style="font-size: 1.5rem; font-weight: bold; color: var(--brand-700); margin: 0; line-height: 1.2;">
             ${name.name_bn}
           </h2>
         </div>
-        <div class="mb-4">
-          <p class="text-gray-600">
+        <div style="margin-bottom: 1rem;">
+          <p style="color: #4b5563; margin: 0 0 0.5rem 0;">
             <strong>অর্থ:</strong> ${name.meaning}
           </p>
-          <p class="arabic text-2xl mt-2 text-gray-800">
+          <p class="arabic" style="font-size: 1.5rem; margin: 0.5rem 0 0 0; color: #1f2937;">
             ${name.name_ar}
           </p>
         </div>
-        <div class="flex flex-wrap gap-2 text-sm">
-          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 bg-gray-900/5"><i class="ri-user-${name.gender === 'boy' ? 'line' : 'women-line'}"></i> ${name.gender === 'boy' ? 'ছেলে' : 'মেয়ে'}</span>
-          ${name.source ? `<span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 bg-gray-900/5"><i class="ri-book-3-line"></i> ${name.source}</span>` : ''}
-          <span class="flex items-center gap-1.5 rounded-full py-1.5 px-2.5 text-xs font-semibold leading-none border border-dashed border-gray-900/10 bg-gray-900/5"><i class="ri-fire-line"></i> ${name.clickCount || 0} clicks</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.875rem;">
+          <span style="display: flex; align-items: center; gap: 0.375rem; border-radius: 9999px; padding: 0.375rem 0.625rem; font-size: 0.75rem; font-weight: 600; line-height: 1; border: 1px dashed rgba(17, 24, 39, 0.1); background-color: rgba(17, 24, 39, 0.05);"><i class="${name.gender === 'boy' ? 'ri-user-line' : 'ri-women-line'}"></i> ${name.gender === 'boy' ? 'ছেলে' : 'মেয়ে'}</span>
+          ${name.source ? `<span style="display: flex; align-items: center; gap: 0.375rem; border-radius: 9999px; padding: 0.375rem 0.625rem; font-size: 0.75rem; font-weight: 600; line-height: 1; border: 1px dashed rgba(17, 24, 39, 0.1); background-color: rgba(17, 24, 39, 0.05);"><i class="ri-book-3-line"></i> ${name.source}</span>` : ''}
+          <span style="display: flex; align-items: center; gap: 0.375rem; border-radius: 9999px; padding: 0.375rem 0.625rem; font-size: 0.75rem; font-weight: 600; line-height: 1; border: 1px dashed rgba(17, 24, 39, 0.1); background-color: rgba(17, 24, 39, 0.05);"><i class="ri-fire-line"></i> ${name.clickCount || 0} clicks</span>
         </div>
       </a>
     `;
@@ -374,9 +305,9 @@
     if (isLoading) return;
 
     isLoading = true;
-    loadingSpinner.classList.remove('hidden');
+    loadingSpinner.style.display = 'block';
     nameListContainer.innerHTML = '';
-    noResultsMessage.classList.add('hidden');
+    noResultsMessage.style.display = 'none';
 
     const namesArray = await getNamesData(filter);
 
@@ -387,11 +318,11 @@
         const nameCardsHTML = namesArray.map(renderNameCard).join('');
         nameListContainer.innerHTML = nameCardsHTML;
     } else {
-        noResultsMessage.classList.remove('hidden');
+        noResultsMessage.style.display = 'block';
     }
 
     isLoading = false;
-    loadingSpinner.classList.add('hidden');
+    loadingSpinner.style.display = 'none';
   }
 
 // Function to track a click on a name using Realtime Database transactions
@@ -430,7 +361,6 @@ filterChips.forEach(chip => {
     });
 });
 
-
 // Event listener for search input
 let searchTimeout = null;
 searchInput.addEventListener('input', () => {
@@ -452,10 +382,10 @@ searchInput.addEventListener('input', () => {
             if (filteredNames.length > 0) {
                 const nameCardsHTML = filteredNames.map(renderNameCard).join('');
                 nameListContainer.innerHTML = nameCardsHTML;
-                noResultsMessage.classList.add('hidden');
+                noResultsMessage.style.display = 'none';
             } else {
                 nameListContainer.innerHTML = '';
-                noResultsMessage.classList.remove('hidden');
+                noResultsMessage.style.display = 'block';
             }
         } else {
             renderNames(currentFilter);
@@ -473,4 +403,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
