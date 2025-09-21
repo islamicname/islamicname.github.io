@@ -6,9 +6,6 @@
   <title>ইসলামিক নামের ভান্ডার — সুন্দর অর্থবহ মুসলিম নাম খুঁজুন</title>
   <meta name="description" content="ইসলামিক/মুসলিম ছেলে ও মেয়ের নামের সংগ্রহ। অর্থ, আরবি বানান, উচ্চারণ, উৎস, অনুযায়ী খুঁজুন ও পছন্দের তালিকা সংরক্ষণ করুন।"/>
 
-  <!-- Preconnect to Firebase to speed up data fetching -->
-  <link rel="preconnect" href="https://subscribe-bot-6f9b2-default-rtdb.firebaseio.com">
-
   <link rel="preload" href="./NotoNastaliqUrdu.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./HindSiliguri.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./remixicon.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,8 +18,6 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-  /* Cache font files for 1 year */
-  /* This requires server-side configuration to set Cache-Control headers */
 }
 
 /* Noto Nastaliq Urdu font loaded locally */
@@ -251,7 +246,6 @@
   // State
   let currentFilter = 'boy';
   let isLoading = false;
-  let cachedNames = {}; // Cache in-memory for the session
 
   // Constants for caching
   const CACHE_KEY_PREFIX = 'names_cache_';
@@ -286,22 +280,14 @@
 
   // New unified function to fetch data from cache or Firebase
   async function getNamesData(filter) {
-    // Check in-memory cache first
-    if (cachedNames[filter] && cachedNames[filter].length > 0) {
-      console.log("Using in-memory cache for filter:", filter);
-      return cachedNames[filter];
-    }
-
     const cacheKey = CACHE_KEY_PREFIX + filter;
     const cacheTimestampKey = CACHE_TIMESTAMP_KEY_PREFIX + filter;
     const cachedData = localStorage.getItem(cacheKey);
     const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
 
     if (cachedData && cachedTimestamp && (Date.now() - cachedTimestamp < CACHE_DURATION_MS)) {
-        console.log("Using localStorage cache for filter:", filter);
-        const data = JSON.parse(cachedData);
-        cachedNames[filter] = data; // Store in memory
-        return data;
+        console.log("Using cached data for filter:", filter);
+        return JSON.parse(cachedData);
     } else {
         console.log("Fetching new data from Firebase for filter:", filter);
         const namesRef = ref(db, `${filter}_names`);
@@ -325,7 +311,6 @@
             // Save to cache
             localStorage.setItem(cacheKey, JSON.stringify(namesArray));
             localStorage.setItem(cacheTimestampKey, Date.now());
-            cachedNames[filter] = namesArray; // Store in memory
 
             return namesArray;
 
