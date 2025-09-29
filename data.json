@@ -1,0 +1,1315 @@
+{
+  "boy_names": {
+    "Abd Allah": {
+      "meaning": "আল্লাহর বান্দা",
+      "name_ar": "عبد الله",
+      "name_bn": "আব্দুল্লাহ",
+      "name_en": "Abd Allah",
+      "source": "সুরা জিন, আয়াত ১৯"
+    },
+    "Abd al-Rahman": {
+      "meaning": "করুণাময়ের দাস",
+      "name_ar": "عبد الرحمن",
+      "name_bn": "আবদুর রহমান",
+      "name_en": "Abd al-Rahman",
+      "source": "বুখারী"
+    },
+    "Abdul-Ahad": {
+      "meaning": "এক ও অদ্বিতীয় আল্লাহর বান্দা",
+      "name_ar": "عبد الأحد",
+      "name_bn": "আব্দুল আহাদ",
+      "name_en": "Abdul-Ahad",
+      "source": "সুরা আল-ইখলাস, আয়াত ১"
+    },
+    "Abdul-Akhir": {
+      "meaning": "সর্বশেষ আল্লাহর বান্দা",
+      "name_ar": "عبد الآخر",
+      "name_bn": "আব্দুল আখির",
+      "name_en": "Abdul-Akhir",
+      "source": "সুরা আল-হাদীদ, আয়াত ৩"
+    },
+    "Abdul-Ali": {
+      "meaning": "উচ্চতম আল্লাহর বান্দা",
+      "name_ar": "عبد العلي",
+      "name_bn": "আব্দুল আলি",
+      "name_en": "Abdul-Ali",
+      "source": "সুরা আল-বাকারা, আয়াত ২৫৫"
+    },
+    "Abdul-Alim": {
+      "meaning": "সর্বজ্ঞানী আল্লাহর বান্দা",
+      "name_ar": "عبد العليم",
+      "name_bn": "আব্দুল আলিম",
+      "name_en": "Abdul-Alim",
+      "source": "সুরা আল-বাকারা, আয়াত ৩৩"
+    },
+    "Abdul-Awwal": {
+      "meaning": "সর্বপ্রথম আল্লাহর বান্দা",
+      "name_ar": "عبد الأول",
+      "name_bn": "আব্দুল আওয়াল",
+      "name_en": "Abdul-Awwal",
+      "source": "সুরা আল-হাদীদ, আয়াত ৩"
+    },
+    "Abdul-Azim": {
+      "meaning": "সর্বশ্রেষ্ঠ আল্লাহর বান্দা",
+      "name_ar": "عبد العظيم",
+      "name_bn": "আব্দুল আজিম",
+      "name_en": "Abdul-Azim",
+      "source": "সুরা আল-বাকারা, আয়াত ২৫৫"
+    },
+    "Abdul-Aziz": {
+      "meaning": "সর্বশক্তিমান আল্লাহর বান্দা",
+      "name_ar": "عبد العزيز",
+      "name_bn": "আব্দুল আজীজ",
+      "name_en": "Abdul-Aziz",
+      "source": "সুরা আল-বাকারা, আয়াত ২০৯"
+    },
+    "Abdul-Badi'": {
+      "meaning": "অতুলনীয় সৃষ্টিকর্তার বান্দা",
+      "name_ar": "عبد البديع",
+      "name_bn": "আব্দুল বাদি",
+      "name_en": "Abdul-Badi'",
+      "source": "সুরা আল-বাকারা, আয়াত ১১৭"
+    },
+    "Abdul-Baith": {
+      "meaning": "পুনরুত্থানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الباعث",
+      "name_bn": "আব্দুল বাইস",
+      "name_en": "Abdul-Baith",
+      "source": "সুরা আল-হাদীদ, আয়াত ৪"
+    },
+    "Abdul-Baqi": {
+      "meaning": "চিরস্থায়ী আল্লাহর বান্দা",
+      "name_ar": "عبد الباقي",
+      "name_bn": "আব্দুল বাকি",
+      "name_en": "Abdul-Baqi",
+      "source": "সুরা আর-রহমান, আয়াত ২৭"
+    },
+    "Abdul-Bari": {
+      "meaning": "সঠিকভাবে সৃষ্টিকারী আল্লাহর বান্দা",
+      "name_ar": "عبد البارئ",
+      "name_bn": "আব্দুল বারী",
+      "name_en": "Abdul-Bari",
+      "source": "সুরা আল-হাশর, আয়াত ২৪"
+    },
+    "Abdul-Barr": {
+      "meaning": "কল্যাণময় আল্লাহর বান্দা",
+      "name_ar": "عبد البر",
+      "name_bn": "আব্দুল বার",
+      "name_en": "Abdul-Barr",
+      "source": "সুরা আত-তূর, আয়াত ২৮"
+    },
+    "Abdul-Basir": {
+      "meaning": "সর্বদ্রষ্টা আল্লাহর বান্দা",
+      "name_ar": "عبد البصير",
+      "name_bn": "আব্দুল বাসির",
+      "name_en": "Abdul-Basir",
+      "source": "সুরা আল-হাদীদ, আয়াত ৪"
+    },
+    "Abdul-Basit": {
+      "meaning": "সম্প্রসারনকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الباسط",
+      "name_bn": "আব্দুল বাসিত",
+      "name_en": "Abdul-Basit",
+      "source": "সুরা আল-বাকারা, আয়াত ২৪৫"
+    },
+    "Abdul-Batil": {
+      "meaning": "অদৃশ্য আল্লাহর বান্দা",
+      "name_ar": "عبد الباطن",
+      "name_bn": "আব্দুল বাতিল",
+      "name_en": "Abdul-Batil",
+      "source": "সুরা আল-হাদীদ, আয়াত ৩"
+    },
+    "Abdul-Dhul-Jalali-wal-Ikram": {
+      "meaning": "মহিমাময় ও দাতা সত্তার বান্দা",
+      "name_ar": "عبد ذو الجلال والإكرام",
+      "name_bn": "আব্দুল জুল-জালালি ওয়াল-ইকরাম",
+      "name_en": "Abdul-Dhul-Jalali-wal-Ikram",
+      "source": "সুরা আর-রহমান, আয়াত ২৭"
+    },
+    "Abdul-Fattah": {
+      "meaning": "সর্বদা বিজয়দানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الفتاح",
+      "name_bn": "আব্দুল ফাত্তাহ",
+      "name_en": "Abdul-Fattah",
+      "source": "সুরা সাবা, আয়াত ২৬"
+    },
+    "Abdul-Ghaffar": {
+      "meaning": "সর্বাধিক ক্ষমাশীল আল্লাহর বান্দা",
+      "name_ar": "عبد الغفار",
+      "name_bn": "আব্দুল গাফফার",
+      "name_en": "Abdul-Ghaffar",
+      "source": "সুরা নূহ, আয়াত ১০"
+    },
+    "Abdul-Ghafur": {
+      "meaning": "ক্ষমাশীল আল্লাহর বান্দা",
+      "name_ar": "عبد الغفور",
+      "name_bn": "আব্দুল গাফুর",
+      "name_en": "Abdul-Ghafur",
+      "source": "সুরা আল-বাকারা, আয়াত ১৭৩"
+    },
+    "Abdul-Ghani": {
+      "meaning": "স্বয়ংসম্পূর্ণ আল্লাহর বান্দা",
+      "name_ar": "عبد الغني",
+      "name_bn": "আব্দুল গানি",
+      "name_en": "Abdul-Ghani",
+      "source": "সুরা আল-হাদীদ, আয়াত ২৪"
+    },
+    "Abdul-Hadi": {
+      "meaning": "পথপ্রদর্শক আল্লাহর বান্দা",
+      "name_ar": "عبد الهادي",
+      "name_bn": "আব্দুল হাদি",
+      "name_en": "Abdul-Hadi",
+      "source": "সুরা আল-হাজ্জ, আয়াত ৫৪"
+    },
+    "Abdul-Hafiz": {
+      "meaning": "রক্ষণাবেক্ষণকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الحفيظ",
+      "name_bn": "আব্দুল হাফিজ",
+      "name_en": "Abdul-Hafiz",
+      "source": "সুরা হূদ, আয়াত ৫৭"
+    },
+    "Abdul-Hakam": {
+      "meaning": "বিচারক আল্লাহর বান্দা",
+      "name_ar": "عبد الحكم",
+      "name_bn": "আব্দুল হাকাম",
+      "name_en": "Abdul-Hakam",
+      "source": "সুরা ইউনুস, আয়াত ১০৯"
+    },
+    "Abdul-Hakim": {
+      "meaning": "বিজ্ঞতম আল্লাহর বান্দা",
+      "name_ar": "عبد الحكيم",
+      "name_bn": "আব্দুল হাকিম",
+      "name_en": "Abdul-Hakim",
+      "source": "সুরা আল-বাকারা, আয়াত ১২৯"
+    },
+    "Abdul-Halim": {
+      "meaning": "অতি সহনশীল আল্লাহর বান্দা",
+      "name_ar": "عبد الحليم",
+      "name_bn": "আব্দুল হালিম",
+      "name_en": "Abdul-Halim",
+      "source": "সুরা আল-বাকারা, আয়াত ২৩৫"
+    },
+    "Abdul-Hamid": {
+      "meaning": "প্রশংসিত আল্লাহর বান্দা",
+      "name_ar": "عبد الحميد",
+      "name_bn": "আব্দুল হামিদ",
+      "name_en": "Abdul-Hamid",
+      "source": "সুরা ইব্রাহীম, আয়াত ৮"
+    },
+    "Abdul-Haqq": {
+      "meaning": "সত্য আল্লাহর বান্দা",
+      "name_ar": "عبد الحق",
+      "name_bn": "আব্দুল হাক্ক",
+      "name_en": "Abdul-Haqq",
+      "source": "সুরা আল-হাজ্জ, আয়াত ৬"
+    },
+    "Abdul-Hasib": {
+      "meaning": "হিসাব গ্রহণকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الحسيب",
+      "name_bn": "আব্দুল হাসিব",
+      "name_en": "Abdul-Hasib",
+      "source": "সুরা আন-নিসা, আয়াত ৬"
+    },
+    "Abdul-Hayy": {
+      "meaning": "চিরঞ্জীব আল্লাহর বান্দা",
+      "name_ar": "عبد الحي",
+      "name_bn": "আব্দুল হাইয়্য",
+      "name_en": "Abdul-Hayy",
+      "source": "সুরা আল-বাকারা, আয়াত ২৫৫"
+    },
+    "Abdul-Jabbar": {
+      "meaning": "অপ্রতিরোধ্য আল্লাহর বান্দা",
+      "name_ar": "عبد الجبار",
+      "name_bn": "আব্দুল জাব্বার",
+      "name_en": "Abdul-Jabbar",
+      "source": "সুরা আল-হাশর, আয়াত ২৩"
+    },
+    "Abdul-Jalil": {
+      "meaning": "মহিমান্বিত আল্লাহর বান্দা",
+      "name_ar": "عبد الجليل",
+      "name_bn": "আব্দুল জালিল",
+      "name_en": "Abdul-Jalil",
+      "source": "সুরা আর-রহমান, আয়াত ২৭"
+    },
+    "Abdul-Jami": {
+      "meaning": "একত্রকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الجامع",
+      "name_bn": "আব্দুল জামি",
+      "name_en": "Abdul-Jami",
+      "source": "সুরা আলি ইমরান, আয়াত ৯"
+    },
+    "Abdul-Kabir": {
+      "meaning": "সর্বাধিক মহান আল্লাহর বান্দা",
+      "name_ar": "عبد الكبير",
+      "name_bn": "আব্দুল কাবির",
+      "name_en": "Abdul-Kabir",
+      "source": "সুরা আল-হাজ্জ, আয়াত ৬২"
+    },
+    "Abdul-Karim": {
+      "meaning": "মহানুভব আল্লাহর বান্দা",
+      "name_ar": "عبد الكريم",
+      "name_bn": "আব্দুল করিম",
+      "name_en": "Abdul-Karim",
+      "source": "সুরা আন-নামল, আয়াত ৪০"
+    },
+    "Abdul-Khabir": {
+      "meaning": "সর্বজ্ঞ, সচেতন আল্লাহর বান্দা",
+      "name_ar": "عبد الخبير",
+      "name_bn": "আব্দুল খাবির",
+      "name_en": "Abdul-Khabir",
+      "source": "সুরা আল-হুজুরাত, আয়াত ১৩"
+    },
+    "Abdul-Khafid": {
+      "meaning": "নীচে নামানোকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الخافض",
+      "name_bn": "আব্দুল খাফিদ",
+      "name_en": "Abdul-Khafid",
+      "source": "সুরা আল-ওয়াকি'আহ, আয়াত ৩"
+    },
+    "Abdul-Khaliq": {
+      "meaning": "সৃষ্টিকর্তা আল্লাহর বান্দা",
+      "name_ar": "عبد الخالق",
+      "name_bn": "আব্দুল খালিক",
+      "name_en": "Abdul-Khaliq",
+      "source": "সুরা আল-হাশর, আয়াত ২৪"
+    },
+    "Abdul-Latif": {
+      "meaning": "দয়ালু, সূক্ষ্মদর্শী আল্লাহর বান্দা",
+      "name_ar": "عبد اللطيف",
+      "name_bn": "আব্দুল লাতিফ",
+      "name_en": "Abdul-Latif",
+      "source": "সুরা আল-মুলক, আয়াত ১৪"
+    },
+    "Abdul-Majid": {
+      "meaning": "সর্বাধিক গৌরবময় আল্লাহর বান্দা",
+      "name_ar": "عبد المجيد",
+      "name_bn": "আব্দুল মাজিদ",
+      "name_en": "Abdul-Majid",
+      "source": "সুরা হূদ, আয়াত ৭৩"
+    },
+    "Abdul-Malik": {
+      "meaning": "রাজত্বের মালিকের বান্দা",
+      "name_ar": "عبد الملك",
+      "name_bn": "আব্দুল মালিক",
+      "name_en": "Abdul-Malik",
+      "source": "সুরা আল-ফাতিহা, আয়াত ৪"
+    },
+    "Abdul-Malikul-Mulk": {
+      "meaning": "রাজত্বের মালিকের বান্দা",
+      "name_ar": "عبد المالك الملك",
+      "name_bn": "আব্দুল মালিকুল মুল্ক",
+      "name_en": "Abdul-Malikul-Mulk",
+      "source": "সুরা আলি ইমরান, আয়াত ২৬"
+    },
+    "Abdul-Mani'": {
+      "meaning": "প্রতিরোধকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المانع",
+      "name_bn": "আব্দুল মানি",
+      "name_en": "Abdul-Mani'",
+      "source": "সুরা গাফির, আয়াত ১৭"
+    },
+    "Abdul-Matin": {
+      "meaning": "দৃঢ় আল্লাহর বান্দা",
+      "name_ar": "عبد المتين",
+      "name_bn": "আব্দুল মাতিন",
+      "name_en": "Abdul-Matin",
+      "source": "সুরা আয-যারিয়াত, আয়াত ৫৮"
+    },
+    "Abdul-Mu'akhkhir": {
+      "meaning": "পিছনে রাখা আল্লাহর বান্দা",
+      "name_ar": "عبد المؤخر",
+      "name_bn": "আব্দুল মু'আখখির",
+      "name_en": "Abdul-Mu'akhkhir",
+      "source": "সুরা আল-হাদীদ, আয়াত ৩"
+    },
+    "Abdul-Mu'id": {
+      "meaning": "পুনরাবর্তনকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المعيد",
+      "name_bn": "আব্দুল মু'ইদ",
+      "name_en": "Abdul-Mu'id",
+      "source": "সুরা আর-রূম, আয়াত ২৭"
+    },
+    "Abdul-Mu'izz": {
+      "meaning": "সম্মান প্রদানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المعز",
+      "name_bn": "আব্দুল মুইজ",
+      "name_en": "Abdul-Mu'izz",
+      "source": "সুরা আলি ইমরান, আয়াত ২৬"
+    },
+    "Abdul-Mubdi": {
+      "meaning": "সূচনাকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المبدئ",
+      "name_bn": "আব্দুল মুবদি",
+      "name_en": "Abdul-Mubdi",
+      "source": "সুরা আর-রূম, আয়াত ২৭"
+    },
+    "Abdul-Mughni": {
+      "meaning": "প্রাচুর্য দানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المغني",
+      "name_bn": "আব্দুল মুগনি",
+      "name_en": "Abdul-Mughni",
+      "source": "সুরা আত-তওবা, আয়াত ২৮"
+    },
+    "Abdul-Muhaymin": {
+      "meaning": "সংরক্ষণকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المهيمن",
+      "name_bn": "আব্দুল মুহায়মিন",
+      "name_en": "Abdul-Muhaymin",
+      "source": "সুরা আল-হাশর, আয়াত ২৩"
+    },
+    "Abdul-Muhsi": {
+      "meaning": "হিসাব গ্রহণকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المحصي",
+      "name_bn": "আব্দুল মুহসি",
+      "name_en": "Abdul-Muhsi",
+      "source": "সুরা আল-জিন, আয়াত ২৮"
+    },
+    "Abdul-Muhyi": {
+      "meaning": "জীবনদানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المحيي",
+      "name_bn": "আব্দুল মুহিয়ি",
+      "name_en": "Abdul-Muhyi",
+      "source": "সুরা আর-রূম, আয়াত ৫০"
+    },
+    "Abdul-Muin": {
+      "meaning": "সাহায্যকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المعين",
+      "name_bn": "আব্দুল মুঈন",
+      "name_en": "Abdul-Muin",
+      "source": "সুরা আল-ফাতহ, আয়াত ২৪"
+    },
+    "Abdul-Mujib": {
+      "meaning": "প্রার্থনা কবুলকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المجيب",
+      "name_bn": "আব্দুল মুজিব",
+      "name_en": "Abdul-Mujib",
+      "source": "সুরা হূদ, আয়াত ৬১"
+    },
+    "Abdul-Mumin": {
+      "meaning": "নিরাপত্তা প্রদানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المؤمن",
+      "name_bn": "আবদুল মুমিন",
+      "name_en": "Abdul-Mumin",
+      "source": "সুরা আল-হাশর, আয়াত ২৩"
+    },
+    "Abdul-Muntaqim": {
+      "meaning": "প্রতিশোধ গ্রহণকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المنتقم",
+      "name_bn": "আব্দুল মুন্তাকিম",
+      "name_en": "Abdul-Muntaqim",
+      "source": "সুরা আস-সাজদা, আয়াত ২২"
+    },
+    "Abdul-Muqaddim": {
+      "meaning": "সম্মুখ আনয়নকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المقدم",
+      "name_bn": "আব্দুল মুকাদ্দিম",
+      "name_en": "Abdul-Muqaddim",
+      "source": "সুরা আল-হাদীদ, আয়াত ৩"
+    },
+    "Abdul-Muqit": {
+      "meaning": "শক্তির জোগানদাতা আল্লাহর বান্দা",
+      "name_ar": "عبد المقيت",
+      "name_bn": "আব্দুল মুকিত",
+      "name_en": "Abdul-Muqit",
+      "source": "সুরা আন-নিসা, আয়াত ৮৫"
+    },
+    "Abdul-Muqsit": {
+      "meaning": "ন্যায়বিচারক আল্লাহর বান্দা",
+      "name_ar": "عبد المقسط",
+      "name_bn": "আব্দুল মুকসিত",
+      "name_en": "Abdul-Muqsit",
+      "source": "সুরা আল-মুমতাহিনা, আয়াত ৮"
+    },
+    "Abdul-Muqtadir": {
+      "meaning": "সর্বাপেক্ষা ক্ষমতাবান আল্লাহর বান্দা",
+      "name_ar": "عبد المقتدر",
+      "name_bn": "আব্দুল মুকতাদির",
+      "name_en": "Abdul-Muqtadir",
+      "source": "সুরা আল-কাহফ, আয়াত ৪৫"
+    },
+    "Abdul-Musawwir": {
+      "meaning": "আকার দানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المصور",
+      "name_bn": "আব্দুল মুসাওয়ির",
+      "name_en": "Abdul-Musawwir",
+      "source": "সুরা আল-হাশর, আয়াত ২৪"
+    },
+    "Abdul-Muta'ali": {
+      "meaning": "সর্বোচ্চ আল্লাহর বান্দা",
+      "name_ar": "عبد المتعالي",
+      "name_bn": "আব্দুল মুতা'আলি",
+      "name_en": "Abdul-Muta'ali",
+      "source": "সুরা আর-রা'দ, আয়াত ৯"
+    },
+    "Abdul-Mutakabbir": {
+      "meaning": "মহিমাময়, শ্রেষ্ঠত্বের অধিকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المتكبر",
+      "name_bn": "আব্দুল মুতাকাব্বির",
+      "name_en": "Abdul-Mutakabbir",
+      "source": "সুরা আল-হাশর, আয়াত ২৩"
+    },
+    "Abdul-Muzill": {
+      "meaning": "অপমানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد المذل",
+      "name_bn": "আব্দুল মুযিল",
+      "name_en": "Abdul-Muzill",
+      "source": "সুরা আলি ইমরান, আয়াত ২৬"
+    },
+    "Abdul-Nafi'": {
+      "meaning": "কল্যাণ দানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد النافع",
+      "name_bn": "আব্দুল নাফি",
+      "name_en": "Abdul-Nafi'",
+      "source": "সুরা আল-আরাফ, আয়াত ১৫৪"
+    },
+    "Abdul-Nur": {
+      "meaning": "জ্যোতি আল্লাহর বান্দা",
+      "name_ar": "عبد النور",
+      "name_bn": "আব্দুল নূর",
+      "name_en": "Abdul-Nur",
+      "source": "সুরা আন-নূর, আয়াত ৩৫"
+    },
+    "Abdul-Qabid": {
+      "meaning": "সংকোচনকারী আল্লাহর বান্দা",
+      "name_ar": "عبد القابض",
+      "name_bn": "আব্দুল কাবিদ",
+      "name_en": "Abdul-Qabid",
+      "source": "সুরা আল-বাকারা, আয়াত ২৪৫"
+    },
+    "Abdul-Qadir": {
+      "meaning": "সর্বশক্তিমান আল্লাহর বান্দা",
+      "name_ar": "عبد القادر",
+      "name_bn": "আব্দুল কাদির",
+      "name_en": "Abdul-Qadir",
+      "source": "সুরা আল-বাকারা, আয়াত ১৪৫"
+    },
+    "Abdul-Qahhar": {
+      "meaning": "প্রবল পরাক্রমশালী আল্লাহর বান্দা",
+      "name_ar": "عبد القهار",
+      "name_bn": "আব্দুল কাহহার",
+      "name_en": "Abdul-Qahhar",
+      "source": "সুরা ইউসুফ, আয়াত ৩৯"
+    },
+    "Abdul-Qawi": {
+      "meaning": "সর্বাধিক শক্তিমান আল্লাহর বান্দা",
+      "name_ar": "عبد القوي",
+      "name_bn": "আব্দুল কাউই",
+      "name_en": "Abdul-Qawi",
+      "source": "সুরা আল-হাজ্জ, আয়াত ৭৪"
+    },
+    "Abdul-Qayyum": {
+      "meaning": "চিরস্থায়ী আল্লাহর বান্দা",
+      "name_ar": "عبد القيوم",
+      "name_bn": "আব্দুল কাইয়্যুম",
+      "name_en": "Abdul-Qayyum",
+      "source": "সুরা আল-বাকারা, আয়াত ২৫৫"
+    },
+    "Abdul-Quddus": {
+      "meaning": "মহাপবিত্র সত্তার বান্দা",
+      "name_ar": "عبد القدوس",
+      "name_bn": "আব্দুল কুদ্দুস",
+      "name_en": "Abdul-Quddus",
+      "source": "সুরা আল-হাশর, আয়াত ২৩"
+    },
+    "Abdul-Tawwab": {
+      "meaning": "তওবা কবুলকারী আল্লাহর বান্দা",
+      "name_ar": "عبد التواب",
+      "name_bn": "আব্দুল তওয়াব",
+      "name_en": "Abdul-Tawwab",
+      "source": "সুরা আল-বাকারা, আয়াত ১২৮"
+    },
+    "Abdul-Wadud": {
+      "meaning": "স্নেহশীল আল্লাহর বান্দা",
+      "name_ar": "عبد الودود",
+      "name_bn": "আব্দুল ওয়াদুদ",
+      "name_en": "Abdul-Wadud",
+      "source": "সুরা হূদ, আয়াত ৯০"
+    },
+    "Abdul-Wahhab": {
+      "meaning": "সর্বদা দানশীল আল্লাহর বান্দা",
+      "name_ar": "عبد الوهاب",
+      "name_bn": "আব্দুল ওয়াহহাব",
+      "name_en": "Abdul-Wahhab",
+      "source": "সুরা সাদ, আয়াত ৯"
+    },
+    "Abdul-Wahid": {
+      "meaning": "এক ও অদ্বিতীয় আল্লাহর বান্দা",
+      "name_ar": "عبد الواحد",
+      "name_bn": "আব্দুল ওয়াহিদ",
+      "name_en": "Abdul-Wahid",
+      "source": "সুরা আর-রা'দ, আয়াত ১৬"
+    },
+    "Abdul-Wajid": {
+      "meaning": "সন্ধানকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الواجد",
+      "name_bn": "আব্দুল ওয়াজিদ",
+      "name_en": "Abdul-Wajid",
+      "source": "সুরা আয-যারিয়াত, আয়াত ৫৮"
+    },
+    "Abdul-Wakil": {
+      "meaning": "কর্ম সম্পাদক আল্লাহর বান্দা",
+      "name_ar": "عبد الوكيل",
+      "name_bn": "আব্দুল ওয়াকিল",
+      "name_en": "Abdul-Wakil",
+      "source": "সুরা আল-আন'আম, আয়াত ১০২"
+    },
+    "Abdul-Wali": {
+      "meaning": "অভিভাবক আল্লাহর বান্দা",
+      "name_ar": "عبد الولي",
+      "name_bn": "আব্দুল ওয়ালি",
+      "name_en": "Abdul-Wali",
+      "source": "সুরা আল-বাকারা, আয়াত ১০৭"
+    },
+    "Abdul-Warith": {
+      "meaning": "উত্তরাধিকারী আল্লাহর বান্দা",
+      "name_ar": "عبد الوارث",
+      "name_bn": "আব্দুল ওয়ারিস",
+      "name_en": "Abdul-Warith",
+      "source": "সুরা আল-হিজর, আয়াত ২৩"
+    },
+    "Abdul-Wasi": {
+      "meaning": "সর্বব্যাপী আল্লাহর বান্দা",
+      "name_ar": "عبد الواسع",
+      "name_bn": "আব্দুল ওয়াসি",
+      "name_en": "Abdul-Wasi",
+      "source": "সুরা আল-বাকারা, আয়াত ২৬১"
+    },
+    "Abu Ayyub": {
+      "meaning": "আনসারদের",
+      "name_ar": "أبو أيوب الأنصاري",
+      "name_bn": "আবু আইয়ুব",
+      "name_en": "Abu Ayyub",
+      "source": "বুখারী"
+    },
+    "Abu Bakr": {
+      "meaning": "প্রথম",
+      "name_ar": "أبو بكر",
+      "name_bn": "আবু বকর",
+      "name_en": "Abu Bakr",
+      "source": "বুখারী"
+    },
+    "Abu Darda": {
+      "meaning": "চর্মের পিতা",
+      "name_ar": "أبو الدرداء",
+      "name_bn": "আবু দারদা",
+      "name_en": "Abu Darda",
+      "source": "বুখারী"
+    },
+    "Abu Dharr": {
+      "meaning": "উত্স",
+      "name_ar": "أبو ذر الغفاري",
+      "name_bn": "আবু যার",
+      "name_en": "Abu Dharr",
+      "source": "মুসলিম"
+    },
+    "Abu Hudhayfa": {
+      "meaning": "হুজাইফার পিতা",
+      "name_ar": "أبو حذيفة",
+      "name_bn": "আবু হুজাইফা",
+      "name_en": "Abu Hudhayfa",
+      "source": "বুখারী"
+    },
+    "Abu Hurayra": {
+      "meaning": "বিড়ালের পিতা",
+      "name_ar": "أبو هريرة",
+      "name_bn": "আবু হুরায়রা",
+      "name_en": "Abu Hurayra",
+      "source": "বুখারী"
+    },
+    "Abu Musa": {
+      "meaning": "আশ'আর গোত্রের",
+      "name_ar": "أبو موسى الأشعري",
+      "name_bn": "আবু মুসা",
+      "name_en": "Abu Musa",
+      "source": "বুখারী"
+    },
+    "Abu Said": {
+      "meaning": "খুদরা গোত্রের",
+      "name_ar": "أبو سعيد الخدري",
+      "name_bn": "আবু সাঈদ",
+      "name_en": "Abu Said",
+      "source": "বুখারী"
+    },
+    "Abu Salama": {
+      "meaning": "সালামার পিতা",
+      "name_ar": "أبو سلمة",
+      "name_bn": "আবু সালামা",
+      "name_en": "Abu Salama",
+      "source": "মুসলিম"
+    },
+    "Abu Ubaydah": {
+      "meaning": "আল্লাহর দাস",
+      "name_ar": "أبو عبيدة بن الجراح",
+      "name_bn": "আবু উবাইদাহ",
+      "name_en": "Abu Ubaydah",
+      "source": "বুখারী"
+    },
+    "Abu Usama": {
+      "meaning": "উসামার পিতা",
+      "name_ar": "أبو أسامة",
+      "name_bn": "আবু উসামা",
+      "name_en": "Abu Usama",
+      "source": "মুসলিম"
+    },
+    "Abu al-As": {
+      "meaning": "রাবীর",
+      "name_ar": "أبو العاص بن الربيع",
+      "name_bn": "আবু আল-আস",
+      "name_en": "Abu al-As",
+      "source": "বুখারী"
+    },
+    "Adam": {
+      "meaning": "মাটি থেকে সৃষ্ট",
+      "name_ar": "آدم",
+      "name_bn": "আদম",
+      "name_en": "Adam",
+      "source": "সুরা আল-বাকারা, আয়াত ৩৩"
+    },
+    "Al-Yasa": {
+      "meaning": "আল্লাহর উদ্ধার",
+      "name_ar": "اليسع",
+      "name_bn": "আল-ইয়াসা",
+      "name_en": "Al-Yasa",
+      "source": "সুরা আল-আন'আম, আয়াত ৮৬"
+    },
+    "Ali": {
+      "meaning": "উচ্চ, উন্নত",
+      "name_ar": "علي بن أبي طالب",
+      "name_bn": "আলী",
+      "name_en": "Ali",
+      "source": "বুখারী"
+    },
+    "Amir": {
+      "meaning": "নেতা",
+      "name_ar": "عامر بن فهيرة",
+      "name_bn": "আমির",
+      "name_en": "Amir",
+      "source": "বুখারী"
+    },
+    "Ammar": {
+      "meaning": "স্থায়ী",
+      "name_ar": "عمار بن ياسر",
+      "name_bn": "আম্মার",
+      "name_en": "Ammar",
+      "source": "বুখারী"
+    },
+    "Amr": {
+      "meaning": "জীবন্ত",
+      "name_ar": "عمرو بن العاص",
+      "name_bn": "আমর",
+      "name_en": "Amr",
+      "source": "মুসলিম"
+    },
+    "Anas": {
+      "meaning": "আনন্দ",
+      "name_ar": "أنس بن مالك",
+      "name_bn": "আনাস",
+      "name_en": "Anas",
+      "source": "বুখারী"
+    },
+    "Ayyub": {
+      "meaning": "প্রত্যাবর্তনকারী",
+      "name_ar": "أيوب",
+      "name_bn": "আইয়ুব",
+      "name_en": "Ayyub",
+      "source": "সুরা আল-আন'আম, আয়াত ৮৪"
+    },
+    "Bara'": {
+      "meaning": "উজ্জ্বল",
+      "name_ar": "البراء بن مالك",
+      "name_bn": "বারা",
+      "name_en": "Bara'",
+      "source": "বুখারী"
+    },
+    "Bilal": {
+      "meaning": "সতেজ",
+      "name_ar": "بلال بن رباح",
+      "name_bn": "বিলাল",
+      "name_en": "Bilal",
+      "source": "বুখারী"
+    },
+    "Dawood": {
+      "meaning": "প্রিয়, বন্ধু",
+      "name_ar": "داود",
+      "name_bn": "দাউদ",
+      "name_en": "Dawood",
+      "source": "সুরা আল-বাকারা, আয়াত ২৫১"
+    },
+    "Hamza": {
+      "meaning": "সাহসী",
+      "name_ar": "حمزة بن عبد المطلب",
+      "name_bn": "হামজা",
+      "name_en": "Hamza",
+      "source": "বুখারী"
+    },
+    "Harun": {
+      "meaning": "উজ্জ্বল, আলোকিত",
+      "name_ar": "هارون",
+      "name_bn": "হারুন",
+      "name_en": "Harun",
+      "source": "সুরা মারইয়াম, আয়াত ৫১"
+    },
+    "Hasan": {
+      "meaning": "সুন্দর",
+      "name_ar": "الحسن بن علي",
+      "name_bn": "হাসান",
+      "name_en": "Hasan",
+      "source": "বুখারী"
+    },
+    "Hud": {
+      "meaning": "পথপ্রদর্শক",
+      "name_ar": "هود",
+      "name_bn": "হুদ",
+      "name_en": "Hud",
+      "source": "সুরা হূদ, আয়াত ৫০"
+    },
+    "Hudhayfah": {
+      "meaning": "ইয়ামানের",
+      "name_ar": "حذيفة بن اليمان",
+      "name_bn": "হুযাইফা",
+      "name_en": "Hudhayfah",
+      "source": "মুসলিম"
+    },
+    "Husayn": {
+      "meaning": "ছোট সুন্দর",
+      "name_ar": "الحسين بن علي",
+      "name_bn": "হুসাইন",
+      "name_en": "Husayn",
+      "source": "তিরমিযী"
+    },
+    "Ibn Mas'ud": {
+      "meaning": "সৌভাগ্যবান",
+      "name_ar": "ابن مسعود",
+      "name_bn": "ইবনে মাসউদ",
+      "name_en": "Ibn Mas'ud",
+      "source": "বুখারী"
+    },
+    "Ibrahim": {
+      "meaning": "পিতার নেতা",
+      "name_ar": "ابراهيم",
+      "name_bn": "ইব্রাহিম",
+      "name_en": "Ibrahim",
+      "source": "সুরা আল-বাকারা, আয়াত ১২৪"
+    },
+    "Idris": {
+      "meaning": "জ্ঞানী, পণ্ডিত",
+      "name_ar": "إدريس",
+      "name_bn": "ইদ্রিস",
+      "name_en": "Idris",
+      "source": "সুরা মারইয়াম, আয়াত ৫৬"
+    },
+    "Ilyas": {
+      "meaning": "আমার ঈশ্বর ইয়াহ",
+      "name_ar": "إلياس",
+      "name_bn": "ইলিয়াস",
+      "name_en": "Ilyas",
+      "source": "সুরা আল-আন'আম, আয়াত ৮৫"
+    },
+    "Isa": {
+      "meaning": "আল্লাহর সাহায্য",
+      "name_ar": "عيسى",
+      "name_bn": "ঈসা",
+      "name_en": "Isa",
+      "source": "সুরা আল-বাকারা, আয়াত ৮৭"
+    },
+    "Ishaq": {
+      "meaning": "হাসি, আনন্দ",
+      "name_ar": "اسحاق",
+      "name_bn": "ইসহাক",
+      "name_en": "Ishaq",
+      "source": "সুরা আল-বাকারা, আয়াত ১৩৩"
+    },
+    "Ismail": {
+      "meaning": "আল্লাহর কথা শোনেন",
+      "name_ar": "اسماعيل",
+      "name_bn": "ইসমাইল",
+      "name_en": "Ismail",
+      "source": "সুরা আল-বাকারা, আয়াত ১২৫"
+    },
+    "Ja'far": {
+      "meaning": "নদী",
+      "name_ar": "جعفر بن أبي طالب",
+      "name_bn": "জাফর",
+      "name_en": "Ja'far",
+      "source": "বুখারী"
+    },
+    "Jabir": {
+      "meaning": "আল্লাহর দাস",
+      "name_ar": "جابر بن عبد الله",
+      "name_bn": "জাবির",
+      "name_en": "Jabir",
+      "source": "বুখারী"
+    },
+    "Jubayr": {
+      "meaning": "শক্তিশালী",
+      "name_ar": "جبير بن المطعم",
+      "name_bn": "জুবাইর",
+      "name_en": "Jubayr",
+      "source": "বুখারী"
+    },
+    "Khalid": {
+      "meaning": "চিরন্তন",
+      "name_ar": "خالد بن الوليد",
+      "name_bn": "খালিদ",
+      "name_en": "Khalid",
+      "source": "বুখারী"
+    },
+    "Lut": {
+      "meaning": "আশ্রয়দাতা, সাহায্যকারী",
+      "name_ar": "لوط",
+      "name_bn": "লূত",
+      "name_en": "Lut",
+      "source": "সুরা আল-আন'আম, আয়াত ৮৬"
+    },
+    "Miqdad": {
+      "meaning": "শক্তিশালী",
+      "name_ar": "المقداد بن الأسود",
+      "name_bn": "মিকদাদ",
+      "name_en": "Miqdad",
+      "source": "মুসলিম"
+    },
+    "Muadh": {
+      "meaning": "যাকে আশ্রয় দেওয়া হয়েছে",
+      "name_ar": "معاذ بن جبل",
+      "name_bn": "মুয়াজ",
+      "name_en": "Muadh",
+      "source": "বুখারী"
+    },
+    "Mughira": {
+      "meaning": "সাহসী",
+      "name_ar": "المغيرة بن شعبة",
+      "name_bn": "মুগীরাহ",
+      "name_en": "Mughira",
+      "source": "বুখারী"
+    },
+    "Muhammad": {
+      "meaning": "প্রশংসিত",
+      "name_ar": "محمد",
+      "name_bn": "মুহাম্মদ",
+      "name_en": "Muhammad",
+      "source": "সুরা মুহাম্মদ, আয়াত ২"
+    },
+    "Mus'ab": {
+      "meaning": "শক্তিশালী",
+      "name_ar": "مصعب بن عمير",
+      "name_bn": "মুস'আব",
+      "name_en": "Mus'ab",
+      "source": "বুখারী"
+    },
+    "Musa": {
+      "meaning": "জল থেকে উদ্ধারকৃত",
+      "name_ar": "موسى",
+      "name_bn": "মুসা",
+      "name_en": "Musa",
+      "source": "সুরা আল-বাকারা, আয়াত ৫৩"
+    },
+    "Nuh": {
+      "meaning": "শান্তিদাতা, ত্রাণকর্তা",
+      "name_ar": "نوح",
+      "name_bn": "নূহ",
+      "name_en": "Nuh",
+      "source": "সুরা নূহ, আয়াত ১"
+    },
+    "Numayr": {
+      "meaning": "নমর",
+      "name_ar": "نمير بن عوان",
+      "name_bn": "নুমাইর",
+      "name_en": "Numayr",
+      "source": "বুখারী"
+    },
+    "Sa'd": {
+      "meaning": "সৌভাগ্যবান",
+      "name_ar": "سعد بن أبي وقاص",
+      "name_bn": "সাদ",
+      "name_en": "Sa'd",
+      "source": "মুসলিম"
+    },
+    "Said": {
+      "meaning": "সুখী",
+      "name_ar": "سعيد بن زيد",
+      "name_bn": "সাঈদ",
+      "name_en": "Said",
+      "source": "তিরমিযী"
+    },
+    "Salama": {
+      "meaning": "নিরাপত্তা",
+      "name_ar": "سلمة بن الأكوع",
+      "name_bn": "সালামা",
+      "name_en": "Salama",
+      "source": "বুখারী"
+    },
+    "Saleh": {
+      "meaning": "ধার্মিক, সৎ",
+      "name_ar": "صالح",
+      "name_bn": "সালেহ",
+      "name_en": "Saleh",
+      "source": "সুরা হূদ, আয়াত ৫৪"
+    },
+    "Salih": {
+      "meaning": "সৎ",
+      "name_ar": "صالح",
+      "name_bn": "সালিহ",
+      "name_en": "Salih",
+      "source": "সুরা আল-বাকারা, আয়াত ৬২"
+    },
+    "Salman": {
+      "meaning": "ফারসি",
+      "name_ar": "سلمان الفارسي",
+      "name_bn": "সালমান",
+      "name_en": "Salman",
+      "source": "বুখারী"
+    },
+    "Shuayb": {
+      "meaning": "পথ প্রদর্শক",
+      "name_ar": "شعيب",
+      "name_bn": "শুয়াইব",
+      "name_en": "Shuayb",
+      "source": "সুরা হূদ, আয়াত ৮৪"
+    },
+    "Subat": {
+      "meaning": "শান্ত",
+      "name_ar": "سباط بن أبي بكر",
+      "name_bn": "সুবাত",
+      "name_en": "Subat",
+      "source": "মুসলিম"
+    },
+    "Suhail": {
+      "meaning": "সহজ",
+      "name_ar": "سهيل بن عمرو",
+      "name_bn": "সুহাইল",
+      "name_en": "Suhail",
+      "source": "বুখারী"
+    },
+    "Suhayb": {
+      "meaning": "সোনালী",
+      "name_ar": "صهيب الرومي",
+      "name_bn": "সুহাইব",
+      "name_en": "Suhayb",
+      "source": "বুখারী"
+    },
+    "Sulaiman": {
+      "meaning": "শান্তিপূর্ণ",
+      "name_ar": "سليمان",
+      "name_bn": "সুলাইমান",
+      "name_en": "Sulaiman",
+      "source": "সুরা আল-বাকারা, আয়াত ১০২"
+    },
+    "Talha": {
+      "meaning": "গাছ",
+      "name_ar": "طلحة بن عبيد الله",
+      "name_bn": "তালহা",
+      "name_en": "Talha",
+      "source": "বুখারী"
+    },
+    "Ubadah": {
+      "meaning": "উপাসক",
+      "name_ar": "عبادة بن الصامت",
+      "name_bn": "উবাদাহ",
+      "name_en": "Ubadah",
+      "source": "বুখারী"
+    },
+    "Ubayy": {
+      "meaning": "কবুতর",
+      "name_ar": "أبي بن كعب",
+      "name_bn": "উবাই",
+      "name_en": "Ubayy",
+      "source": "মুসলিম"
+    },
+    "Umar": {
+      "meaning": "জীবন, আয়ুষ্কাল",
+      "name_ar": "عمر بن الخطاب",
+      "name_bn": "উমর",
+      "name_en": "Umar",
+      "source": "বুখারী"
+    },
+    "Uqbah": {
+      "meaning": "সীমান্ত",
+      "name_ar": "عقبة بن عامر",
+      "name_bn": "উকবা",
+      "name_en": "Uqbah",
+      "source": "মুসলিম"
+    },
+    "Urwah": {
+      "meaning": "শক্তিশালী",
+      "name_ar": "عروة بن مسعود",
+      "name_bn": "উরওয়া",
+      "name_en": "Urwah",
+      "source": "বুখারী"
+    },
+    "Uthman": {
+      "meaning": "ছোট সাপ",
+      "name_ar": "عثمان بن عفان",
+      "name_bn": "উসমান",
+      "name_en": "Uthman",
+      "source": "বুখারী"
+    },
+    "Yahya": {
+      "meaning": "তিনি জীবন দেবেন",
+      "name_ar": "يحيى",
+      "name_bn": "ইয়াহইয়া",
+      "name_en": "Yahya",
+      "source": "সুরা মারইয়াম, আয়াত ৭"
+    },
+    "Yaqub": {
+      "meaning": "অনুসারী",
+      "name_ar": "يعقوب",
+      "name_bn": "ইয়াকুব",
+      "name_en": "Yaqub",
+      "source": "সুরা আল-বাকারা, আয়াত ১৩৩"
+    },
+    "Yazid": {
+      "meaning": "বৃদ্ধি",
+      "name_ar": "يزيد بن أبي سفيان",
+      "name_bn": "ইয়াজিদ",
+      "name_en": "Yazid",
+      "source": "বুখারী"
+    },
+    "Yunus": {
+      "meaning": "কবুতর",
+      "name_ar": "يونس",
+      "name_bn": "ইউনুস",
+      "name_en": "Yunus",
+      "source": "সুরা ইউনুস, আয়াত ৯৮"
+    },
+    "Yusuf": {
+      "meaning": "আল্লাহ বৃদ্ধি করবেন",
+      "name_ar": "يوسف",
+      "name_bn": "ইউসুফ",
+      "name_en": "Yusuf",
+      "source": "সুরা ইউসুফ, আয়াত ৪"
+    },
+    "Zakariya": {
+      "meaning": "আল্লাহ স্মরণ করেন",
+      "name_ar": "زكريا",
+      "name_bn": "যাকারিয়া",
+      "name_en": "Zakariya",
+      "source": "সুরা মারইয়াম, আয়াত ৭"
+    },
+    "Zayd": {
+      "meaning": "বৃদ্ধি",
+      "name_ar": "زيد بن حارثة",
+      "name_bn": "যায়িদ",
+      "name_en": "Zayd",
+      "source": "সুরা আল-আহযাব, আয়াত ৩৭"
+    },
+    "Zubayr": {
+      "meaning": "শক্তিশালী",
+      "name_ar": "الزبير بن العوام",
+      "name_bn": "যুবাইর",
+      "name_en": "Zubayr",
+      "source": "বুখারী"
+    },
+    "Zul-Kifl": {
+      "meaning": "দ্বিগুণ",
+      "name_ar": "ذو الكفل",
+      "name_bn": "যুল-কিফল",
+      "name_en": "Zul-Kifl",
+      "source": "সুরা আল-আম্বিয়া, আয়াত ৮৫"
+    }
+  },
+  "girl_names": {
+    "Amara": {
+      "meaning": "আমির",
+      "name_ar": "أم كلثوم",
+      "name_bn": "আমারা",
+      "name_en": "Amara",
+      "source": "মুসলিম"
+    },
+    "Asiya": {
+      "meaning": "দুঃখ দূরকারী",
+      "name_ar": "آسية",
+      "name_bn": "আসিয়া",
+      "name_en": "Asiya",
+      "source": "সুরা আত-তাহরীম, আয়াত ১১"
+    },
+    "Asma": {
+      "meaning": "সুবাকারের কন্যা",
+      "name_ar": "أسماء بنت أبي بكر",
+      "name_bn": "আসমা",
+      "name_en": "Asma",
+      "source": "বুখারী"
+    },
+    "Ayesha": {
+      "meaning": "সুখী, জীবন যাপনকারী",
+      "name_ar": "عائشة",
+      "name_bn": "আয়েশা",
+      "name_en": "Ayesha",
+      "source": "বুখারী"
+    },
+    "Aziza": {
+      "meaning": "সম্মানিত, শক্তিশালী",
+      "name_ar": "عزيزة",
+      "name_bn": "আজিজা",
+      "name_en": "Aziza",
+      "source": "সুরা ইউসুফ, আয়াত ৩০"
+    },
+    "Fatema": {
+      "meaning": "বিরত থাকা, বিচ্ছিন্ন",
+      "name_ar": "فاطمة",
+      "name_bn": "ফাতেমা",
+      "name_en": "Fatema",
+      "source": "বুখারী"
+    },
+    "Ferdous": {
+      "meaning": "জান্নাত",
+      "name_ar": "فردوس",
+      "name_bn": "ফেরদৌস",
+      "name_en": "Ferdous",
+      "source": "সুরা আল-কাহফ, আয়াত ১০৭"
+    },
+    "Hafsa": {
+      "meaning": "সংরক্ষিত",
+      "name_ar": "حفصة",
+      "name_bn": "হাফসা",
+      "name_en": "Hafsa",
+      "source": "বুখারী"
+    },
+    "Husna": {
+      "meaning": "উত্তম",
+      "name_ar": "حسنى",
+      "name_bn": "হুসনা",
+      "name_en": "Husna",
+      "source": "সুরা আল-আ'রাফ, আয়াত ১৮০"
+    },
+    "Jamila": {
+      "meaning": "সুন্দর",
+      "name_ar": "جميلة",
+      "name_bn": "জামিলা",
+      "name_en": "Jamila",
+      "source": "সুরা ইউসুফ, আয়াত ১৮"
+    },
+    "Jannat": {
+      "meaning": "জান্নাত",
+      "name_ar": "جنة",
+      "name_bn": "জান্নাত",
+      "name_en": "Jannat",
+      "source": "সুরা আল-বাকারা, আয়াত ২৫"
+    },
+    "Juwayriya": {
+      "meaning": "ছোট",
+      "name_ar": "جويرية",
+      "name_bn": "জুয়াইরিয়া",
+      "name_en": "Juwayriya",
+      "source": "মুসলিম"
+    },
+    "Khadija": {
+      "meaning": "প্রারম্ভিক",
+      "name_ar": "خديجة",
+      "name_bn": "খাদিজা",
+      "name_en": "Khadija",
+      "source": "বুখারী"
+    },
+    "Layla": {
+      "meaning": "রাত্রি",
+      "name_ar": "ليلى",
+      "name_bn": "লায়লা",
+      "name_en": "Layla",
+      "source": "সুরা আল-কদর, আয়াত ১"
+    },
+    "Maryam": {
+      "meaning": "উচ্চ",
+      "name_ar": "مريم",
+      "name_bn": "মারিয়াম",
+      "name_en": "Maryam",
+      "source": "সুরা মারইয়াম, আয়াত ১৬"
+    },
+    "Maymuna": {
+      "meaning": "শুভ",
+      "name_ar": "ميمونة",
+      "name_bn": "মাইমুনা",
+      "name_en": "Maymuna",
+      "source": "বুখারী"
+    },
+    "Noora": {
+      "meaning": "আলো",
+      "name_ar": "نوراء",
+      "name_bn": "নূরা",
+      "name_en": "Noora",
+      "source": "সুরা আন-নূর, আয়াত ৩৫"
+    },
+    "Rashida": {
+      "meaning": "জ্ঞানী",
+      "name_ar": "رشيدة",
+      "name_bn": "রাশিদা",
+      "name_en": "Rashida",
+      "source": "সুরা আল-কাহফ, আয়াত ১০"
+    },
+    "Ruqayyah": {
+      "meaning": "উন্নতি",
+      "name_ar": "رقية",
+      "name_bn": "রুকাইয়া",
+      "name_en": "Ruqayyah",
+      "source": "বুখারী"
+    },
+    "Saba": {
+      "meaning": "বাতাস",
+      "name_ar": "سبأ",
+      "name_bn": "সাবা",
+      "name_en": "Saba",
+      "source": "সুরা সাবা, আয়াত ১৫"
+    },
+    "Safina": {
+      "meaning": "নৌকা",
+      "name_ar": "سفينة",
+      "name_bn": "সাফিনা",
+      "name_en": "Safina",
+      "source": "সুরা আল-আ'রাফ, আয়াত ৬৪"
+    },
+    "Safiyyah": {
+      "meaning": "বিশুদ্ধ",
+      "name_ar": "صفية بنت حيي",
+      "name_bn": "সাফিয়া",
+      "name_en": "Safiyyah",
+      "source": "বুখারী"
+    },
+    "Sakina": {
+      "meaning": "শান্তি",
+      "name_ar": "سكينة",
+      "name_bn": "সাকিনা",
+      "name_en": "Sakina",
+      "source": "সুরা আল-বাকারা, আয়াত ২৪৮"
+    },
+    "Shahida": {
+      "meaning": "শহীদ",
+      "name_ar": "شهيدة",
+      "name_bn": "শাহিদা",
+      "name_en": "Shahida",
+      "source": "সুরা আল-বাকারা, আয়াত ২৮২"
+    },
+    "Sumaiya": {
+      "meaning": "প্রথম নারী শহীদ",
+      "name_ar": "سمية",
+      "name_bn": "সুমাইয়া",
+      "name_en": "Sumaiya",
+      "source": "তিরমিযী"
+    },
+    "Tasnim": {
+      "meaning": "স্বর্গের ঝর্ণা",
+      "name_ar": "تسنيم",
+      "name_bn": "তাসনিম",
+      "name_en": "Tasnim",
+      "source": "সুরা আল-মুতাফফিফীন, আয়াত ২৭"
+    },
+    "Umm Kulthum": {
+      "meaning": "নবীর কন্যা",
+      "name_ar": "أم كلثوم",
+      "name_bn": "উম্মে কুলসুম",
+      "name_en": "Umm Kulthum",
+      "source": "বুখারী"
+    },
+    "Umm Salama": {
+      "meaning": "শান্তির মা",
+      "name_ar": "أم سلمة",
+      "name_bn": "উম্মে সালামা",
+      "name_en": "Umm Salama",
+      "source": "মুসলিম"
+    },
+    "Zaynab": {
+      "meaning": "সুগন্ধি ফুল",
+      "name_ar": "زينب",
+      "name_bn": "জয়নব",
+      "name_en": "Zaynab",
+      "source": "বুখারী"
+    }
+  }
+}
